@@ -1514,6 +1514,81 @@ ul, ol { list-style: none; }
   object-fit: contain;
 }
 
+/* Floating Mini Mode */
+.video-modal.is-minimized {
+  pointer-events: none;
+}
+
+.video-modal.is-minimized .video-modal__overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.video-modal.is-minimized .video-modal__container {
+  pointer-events: auto;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 340px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  z-index: 1001;
+  transform: scale(1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  border: 2px solid var(--c-accent);
+}
+
+.video-modal__minimize {
+  position: absolute;
+  top: var(--s-6);
+  right: 80px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.video-modal__minimize:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+.video-modal.is-minimized .video-modal__minimize {
+  width: 32px;
+  height: 32px;
+  top: 8px;
+  right: 48px;
+}
+
+.video-modal.is-minimized .video-modal__close {
+  width: 32px;
+  height: 32px;
+  top: 8px;
+  right: 8px;
+}
+
+.video-modal.is-minimized .video-modal__minimize svg,
+.video-modal.is-minimized .video-modal__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .video-modal.is-minimized .video-modal__container {
+    width: 220px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .video-modal__container {
     width: 95%;

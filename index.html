@@ -1817,6 +1817,12 @@
   <div id="video-lightbox" class="video-modal" style="display:none;">
     <div class="video-modal__overlay" onclick="closeVideo()"></div>
     <div class="video-modal__container">
+      <button class="video-modal__minimize" onclick="toggleMinimize()" title="Toggle Mini Player">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3v5H3M16 21v-5h5M3 16h5v5M21 8h-5V3" />
+        </svg>
+      </button>
       <button class="video-modal__close" onclick="closeVideo()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round">
@@ -1855,6 +1861,7 @@
       if (!modal || !player) return;
 
       modal.classList.remove('is-active');
+      modal.classList.remove('is-minimized');
       player.pause();
       player.src = '';
 
@@ -1862,6 +1869,18 @@
         modal.style.display = 'none';
         document.body.style.overflow = '';
       }, 400);
+    }
+
+    function toggleMinimize() {
+      const modal = document.getElementById('video-lightbox');
+      if (!modal) return;
+      
+      const isMinimized = modal.classList.toggle('is-minimized');
+      if (isMinimized) {
+        document.body.style.overflow = '';
+      } else {
+        document.body.style.overflow = 'hidden';
+      }
     }
   </script>
 
