@@ -756,7 +756,7 @@ ul, ol { list-style: none; }
 .hero__bg-img {
   position: absolute;
   inset: 0;
-  background-image: url('images/f.jpg');
+  background-image: url('/images/f.jpg');
   background-size: cover;
   background-position: center;
   animation: hero-ken-burns 30s var(--ease-smooth) infinite alternate;
