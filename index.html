@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0B1426" id="meta-theme-color" />
+  <title>Prodigy Nursery — Inspiring Young Minds</title>
+  <meta name="description"
+    content="Prodigy Nursery — A leading green kindergarten on 1,500 m² in Beni Suef. Inspiring young minds with premium early education in a safe, creative environment." />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+
+<body>
+
+  <!-- ══════════ PRELOADER ══════════ -->
+  <div class="preloader" id="preloader">
+    <img src="images/logo.png" alt="Prodigy" class="preloader-logo" />
+    <div class="preloader-brand">Prodigy</div>
+    <div class="preloader-bar"></div>
+  </div>
+
+
+  <!-- ══════════ FLOATING SHAPES ══════════ -->
+  <div class="floating-shapes" aria-hidden="true">
+    <div class="shape shape--1" data-speed="0.02"></div>
+    <div class="shape shape--2" data-speed="0.035"></div>
+    <div class="shape shape--3" data-speed="0.025"></div>
+    <div class="shape shape--4" data-speed="0.015"></div>
+    <div class="shape shape--5" data-speed="0.03"></div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       SITE WRAPPER
+       ═══════════════════════════════════════════ -->
+  <div id="site-wrapper">
+
+    <!-- ══════════ NAVBAR ══════════ -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar__inner">
+        <a href="#" class="nav-logo" id="nav-logo">
+          <img src="images/logo.png" alt="Prodigy" class="nav-logo__img" />
+          <span class="nav-logo__text">Prodigy</span>
+        </a>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#programs" data-i18n="nav_programs">Programs</a></li>
+          <li><a href="#vibes" data-i18n="nav_vibes">Vibes</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"
+            title="Toggle theme">
+            <svg class="theme-icon theme-icon--dark" id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon theme-icon--light" id="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+
+          <button class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span id="lang-toggle-label">عربي</span>
+          </button>
+
+          <button class="nav-cta desktop-only" id="nav-enroll" onclick="openModal()">
+            <span data-i18n="nav_enroll">Enroll Now</span>
+            <span class="nav-cta__arrow">&#8599;</span>
+          </button>
+
+          <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" onclick="closeMobile()" data-i18n="nav_about">About</a>
+      <a href="#programs" onclick="closeMobile()" data-i18n="nav_programs">Programs</a>
+      <a href="#vibes" onclick="closeMobile()" data-i18n="nav_vibes">Vibes</a>
+      <a href="#contact" onclick="closeMobile()" data-i18n="nav_contact">Contact</a>
+      <a href="#" onclick="closeMobile(); openModal();" style="color: var(--c-accent);" data-i18n="nav_enroll">Enroll
+        Now</a>
+      <div style="display:flex;gap:var(--s-3);align-items:center;justify-content:center;">
+        <button class="theme-toggle" onclick="toggleTheme(); closeMobile();" aria-label="Toggle theme">
+          <svg class="theme-icon theme-icon--dark" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="theme-icon theme-icon--light" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+        <button class="lang-toggle lang-toggle--mobile" onclick="toggleLanguage(); closeMobile();">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          <span class="lang-toggle-mobile-label">عربي</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero" id="hero">
+      <div class="hero__video-wrap">
+        <div class="hero__bg-img" id="hero-bg"></div>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="hero__eyebrow gs-fade" id="hero-eyebrow">
+          <span class="hero__eyebrow-dot"></span>
+          <span data-i18n="hero_eyebrow">1,500 m² Green Campus — Beni Suef</span>
+        </div>
+
+        <h1 class="hero__title gs-fade" id="hero-title" data-i18n-html="hero_title">
+          Inspiring Young<br /><em>Minds</em>
+        </h1>
+
+        <p class="hero__subtitle gs-fade" id="hero-subtitle" data-i18n="hero_subtitle">
+          A safe, creative, and inspiring environment where your child
+          discovers the joy of learning through play, art, and adventure.
+        </p>
+
+        <div class="hero__actions gs-fade" id="hero-actions">
+          <button class="btn btn--primary" id="hero-cta-book" onclick="openModal()">
+            <span data-i18n="hero_cta_book">Register Now</span>
+            <span class="btn__icon">&#8599;</span>
+          </button>
+          <button class="btn btn--outline" id="hero-cta-explore" onclick="smoothTo('#about')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+            <span data-i18n="hero_cta_explore">Explore</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero__scroll gs-fade" id="hero-scroll">
+        <span data-i18n="hero_scroll">Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ SCROLL SECTIONS ══════════ -->
+    <div class="scroll-sections" id="about">
+
+      <!-- Section 1: Creative Learning -->
+      <section class="scroll-section">
+        <div class="container">
+          <div class="scroll-section__inner">
+            <div class="scroll-section__content gs-fade-left">
+              <div class="scroll-section__eyebrow">
+                <span class="scroll-section__eyebrow-dot"></span>
+                <span data-i18n="about_s1_eyebrow">Creative Learning</span>
+              </div>
+              <h2 class="scroll-section__title" data-i18n-html="about_s1_title">
+                In Prodigy
+              </h2>
+              <p class="scroll-section__text" data-i18n-html="about_s1_text">
+                We create a safe, joyful space where children explore, express, and grow with confidence every day. Our
+                approach blends learning with creativity, helping each child discover their unique potential through
+                meaningful experiences.<br /><br />We don’t just teach… we inspire curiosity, build confidence, and
+                nurture independent thinkers ready for the future.
+              </p>
+              <div class="scroll-section__features" style="display: none;">
+                <!-- Section 1 features hidden as per new copy -->
+              </div>
+            </div>
+            <div class="scroll-section__visual gs-fade-right">
+              <div class="scroll-section__img-shell">
+                <div class="scroll-section__img-core">
+                  <div class="vibe-thumb" style="border-radius: var(--r-2xl); cursor: pointer;"
+                    onclick="openVideo('videos/philosophy.mp4', 'images/f.jpg')">
+                    <img src="images/f.jpg" alt="Philosophy"
+                      style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-2xl);" />
+                    <div class="vibe-thumb__play"
+                      style="opacity: 1; transform: translate(-50%, -50%) scale(1.2); width: 80px; height: 80px; transition: opacity 0.3s ease;">
+                      <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="6 3 20 12 6 21 6 3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="scroll-section__badge scroll-section__badge--bl">
+                  <div class="badge__number">12+</div>
+                  <div class="badge__label" data-i18n="about_s1_badge">Creative Workshops</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Safe Environment -->
+      <section class="scroll-section">
+        <div class="container">
+          <div class="scroll-section__inner">
+            <div class="scroll-section__content gs-fade-right">
+              <div class="scroll-section__eyebrow">
+                <span class="scroll-section__eyebrow-dot"></span>
+                <span data-i18n="about_s2_eyebrow">Safe Environment</span>
+              </div>
+              <h2 class="scroll-section__title" data-i18n-html="about_s2_title">
+                Designed for <em>Safety,</em><br />Built for Wonder
+              </h2>
+              <p class="scroll-section__text" data-i18n="about_s2_text">
+                Every corner of our academy is thoughtfully designed with child
+                safety at its core. From soft-fall surfacing to secure entry
+                systems, we create spaces where parents feel confident and
+                children feel free to explore.
+              </p>
+              <div class="scroll-section__features">
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4l3 3" />
+                    </svg></div>
+                  <span data-i18n="about_s2_f1">Indoor surveillance cameras</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg></div>
+                  <span data-i18n="about_s2_f2">Secure digital check-in</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg></div>
+                  <span data-i18n="about_s2_f3">Highly trained educators</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg></div>
+                  <span data-i18n="about_s2_f4">Continuous supervision</span>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-section__visual gs-fade-left">
+              <div class="scroll-section__img-shell">
+                <div class="scroll-section__img-core">
+                  <img src="images/vv.jpg" alt="Secure outdoor play area" loading="lazy" />
+                </div>
+                <div class="scroll-section__badge scroll-section__badge--tr">
+                  <div class="badge__number">100%</div>
+                  <div class="badge__label" data-i18n="about_s2_badge">Safety Certified</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Experienced Teachers -->
+      <section class="scroll-section">
+        <div class="container">
+          <div class="scroll-section__inner">
+            <div class="scroll-section__content gs-fade-left">
+              <div class="scroll-section__eyebrow">
+                <span class="scroll-section__eyebrow-dot"></span>
+                <span data-i18n="about_s3_eyebrow">Experienced Teachers</span>
+              </div>
+              <h2 class="scroll-section__title" data-i18n-html="about_s3_title">
+                Guided by <em>Passion,</em><br />Driven by Expertise
+              </h2>
+              <p class="scroll-section__text" data-i18n="about_s3_text">
+                Our team of qualified early childhood educators brings warmth,
+                patience, and deep pedagogical knowledge to every interaction.
+                Each teacher is trained in Reggio Emilia, Montessori, and
+                contemporary child development approaches.
+              </p>
+              <div class="scroll-section__features">
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg></div>
+                  <span data-i18n="about_s3_f1">Montessori learning</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg></div>
+                  <span data-i18n="about_s3_f2">Nature-based exploration</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M9 18V5l12-2v13" />
+                      <circle cx="6" cy="18" r="3" />
+                      <circle cx="18" cy="16" r="3" />
+                    </svg></div>
+                  <span data-i18n="about_s3_f3">Music & daily movement</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg></div>
+                  <span data-i18n="about_s3_f4">Interactive storytelling</span>
+                </div>
+                <div class="scroll-section__feature">
+                  <div class="scroll-section__feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                      <path d="M2 2l7.586 7.586" />
+                      <circle cx="11" cy="11" r="2" />
+                    </svg></div>
+                  <span data-i18n="about_s3_f5">Art & self-expression</span>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-section__visual gs-fade-right">
+              <div class="scroll-section__img-shell">
+                <div class="scroll-section__img-core">
+                  <img src="images/ll.png" alt="Bright classroom" loading="lazy" />
+                </div>
+                <div class="scroll-section__badge scroll-section__badge--br">
+                  <div class="badge__number">35+</div>
+                  <div class="badge__label" data-i18n="about_s3_badge">Dedicated Educators</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- ══════════ PROGRAMS ══════════ -->
+    <section class="programs" id="programs">
+      <div class="container">
+        <div class="section-header">
+          <div class="hero__eyebrow gs-fade"
+            style="color: var(--c-accent); background: var(--c-accent-pale); border-color: rgba(232,168,56,0.15);">
+            <span class="hero__eyebrow-dot"></span>
+            <span data-i18n="programs_eyebrow">Our Programs</span>
+          </div>
+          <h2 class="section-header__title gs-fade" data-i18n-html="programs_title">
+            Tailored Paths<br />for Every <em>Stage</em>
+          </h2>
+          <p class="section-header__text gs-fade" data-i18n="programs_text">
+            Age-appropriate programs designed by child development experts,
+            where curiosity is celebrated and every milestone matters.
+          </p>
+        </div>
+
+        <div class="programs__grid">
+          <!-- Baby Class 1 -->
+          <div class="program-card program-card--accent gs-fade">
+            <div class="program-card__inner">
+              <div class="program-card__head">
+                <div class="program-card__step">01</div>
+                <div class="program-card__icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="program-card__title" data-i18n="prog_baby1">Baby Class 1</h3>
+              <div class="program-card__age" data-i18n="prog_baby1_age">2 &ndash; 2.5 years</div>
+              <p class="program-card__text" data-i18n="prog_baby1_text">A gentle and nurturing introduction to early
+                learning. At this stage, children begin to explore separation, build trust, and develop early sensory
+                and motor skills.</p>
+              <div class="program-card__cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Baby Class 2 -->
+          <div class="program-card program-card--accent gs-fade">
+            <div class="program-card__inner">
+              <div class="program-card__head">
+                <div class="program-card__step">02</div>
+                <div class="program-card__icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="program-card__title" data-i18n="prog_baby2">Baby Class 2</h3>
+              <div class="program-card__age" data-i18n="prog_baby2_age">2.5 &ndash; 3 years</div>
+              <p class="program-card__text" data-i18n="prog_baby2_text">Children become more independent, expressive,
+                and socially aware. We support early language development, social interaction, and self-expression
+                through creative play.</p>
+              <div class="program-card__cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- KG 1 -->
+          <div class="program-card program-card--accent gs-fade">
+            <div class="program-card__inner">
+              <div class="program-card__head">
+                <div class="program-card__step">03</div>
+                <div class="program-card__icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 19 7-7 3 3-7 7-3-3Z" />
+                    <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z" />
+                    <path d="m2 2 7.586 7.586" />
+                    <circle cx="11" cy="11" r="2" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="program-card__title" data-i18n="prog_kg1">KG 1</h3>
+              <div class="program-card__age" data-i18n="prog_kg1_age">3 &ndash; 4 years</div>
+              <p class="program-card__text" data-i18n="prog_kg1_text">Growing curiosity and readiness for more
+                structured learning. We focus on cognitive development, early literacy, and teamwork through hands-on
+                experiences.</p>
+              <div class="program-card__cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- KG 2 -->
+          <div class="program-card program-card--accent gs-fade">
+            <div class="program-card__inner">
+              <div class="program-card__head">
+                <div class="program-card__step">04</div>
+                <div class="program-card__icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="program-card__title" data-i18n="prog_kg2">KG 2</h3>
+              <div class="program-card__age" data-i18n="prog_kg2_age">4 &ndash; 5 years</div>
+              <p class="program-card__text" data-i18n="prog_kg2_text">School readiness with stronger independence and
+                critical thinking. We enhance academic readiness and problem-solving through a balanced blend of
+                Montessori learning.</p>
+              <div class="program-card__cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ VIBES ══════════ -->
+    <section class="vibes" id="vibes">
+      <div class="container">
+        <div class="section-header">
+          <div class="hero__eyebrow gs-fade"
+            style="color: var(--c-sage); background: var(--c-sage-pale); border-color: rgba(123,175,142,0.15);">
+            <span class="hero__eyebrow-dot" style="background: var(--c-sage);"></span>
+            <span data-i18n="vibes_eyebrow">Our Community</span>
+          </div>
+          <h2 class="section-header__title gs-fade" data-i18n-html="vibes_title">
+            Prodigy <em>Vibes</em>
+          </h2>
+          <p class="section-header__text gs-fade" data-i18n="vibes_text">
+            Experience the joyful moments and vibrant celebrations that make our academy a second home for every child.
+          </p>
+        </div>
+
+        <div class="vibes__grid-v2">
+
+          <!-- ── Ramadan Vibes ── -->
+          <div class="vibe-event gs-fade">
+            <div class="vibe-event__header">
+              <div class="vibe-event__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+              </div>
+              <h3 class="vibe-event__title" data-i18n="vibe_ramadan">Ramadan Vibes</h3>
+              <a href="https://www.facebook.com/reel/926436377047395/" target="_blank" rel="noopener noreferrer"
+                class="vibe-event__watch">
+                <span data-i18n="vibe_watch">Watch Now</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+            <div class="vibe-event__gallery">
+              <a href="https://www.facebook.com/reel/926436377047395/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/r1 (1).jpg" alt="Ramadan celebration 1" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/926436377047395/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/r1 (2).jpg" alt="Ramadan celebration 2" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/926436377047395/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/r1 (3).jpg" alt="Ramadan celebration 3" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- ── Christmas Vibes ── -->
+          <div class="vibe-event gs-fade">
+            <div class="vibe-event__header">
+              <div class="vibe-event__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 13-1-2-2-1 2-1 1-2 1 2 2 1-2 1Z" />
+                  <path d="m17 14 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5Z" />
+                  <path d="m5 3 1 2 2 1-2 1-1 2-1-2-2-1 2-1Z" />
+                </svg>
+              </div>
+              <h3 class="vibe-event__title" data-i18n="vibe_christmas">Christmas Vibes</h3>
+              <a href="https://www.facebook.com/reel/2295278337623207/" target="_blank" rel="noopener noreferrer"
+                class="vibe-event__watch">
+                <span data-i18n="vibe_watch">Watch Now</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+            <div class="vibe-event__gallery">
+              <a href="https://www.facebook.com/reel/2295278337623207/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/c1.png" alt="Christmas celebration 1" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/2295278337623207/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/c2.png" alt="Christmas celebration 2" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/2295278337623207/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/c3.png" alt="Christmas celebration 3" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- ── Pharaoh Vibes ── -->
+          <div class="vibe-event gs-fade">
+            <div class="vibe-event__header">
+              <div class="vibe-event__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 22h20L12 2z" />
+                </svg>
+              </div>
+              <h3 class="vibe-event__title" data-i18n="vibe_pharaoh">Pharaoh Vibes</h3>
+              <a href="https://www.facebook.com/reel/854466957323534/" target="_blank" rel="noopener noreferrer"
+                class="vibe-event__watch">
+                <span data-i18n="vibe_watch">Watch Now</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+            <div class="vibe-event__gallery">
+              <a href="https://www.facebook.com/reel/854466957323534/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/p1.png" alt="Pharaoh day 1" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/854466957323534/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/p2.png" alt="Pharaoh day 2" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/854466957323534/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/p3.png" alt="Pharaoh day 3" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- ── Village Vibes ── -->
+          <div class="vibe-event gs-fade">
+            <div class="vibe-event__header">
+              <div class="vibe-event__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <h3 class="vibe-event__title" data-i18n="vibe_village">Village Vibes</h3>
+              <a href="https://www.facebook.com/reel/3327522230735586/" target="_blank" rel="noopener noreferrer"
+                class="vibe-event__watch">
+                <span data-i18n="vibe_watch">Watch Now</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+            <div class="vibe-event__gallery">
+              <a href="https://www.facebook.com/reel/3327522230735586/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/v1.png" alt="Village day 1" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/3327522230735586/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/v2.png" alt="Village day 2" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.facebook.com/reel/3327522230735586/" target="_blank" rel="noopener noreferrer" class="vibe-thumb">
+                <img src="images/v3.png" alt="Village day 3" loading="lazy" />
+                <div class="vibe-thumb__play">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ TESTIMONIALS ══════════ -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header gs-fade">
+          <div class="scroll-section__eyebrow">
+            <span class="scroll-section__eyebrow-dot"></span>
+            <span data-i18n="testi_subtitle">Reviews from our community</span>
+          </div>
+          <h2 class="section-header__title" data-i18n-html="testi_title">Parent <em>Stories</em></h2>
+        </div>
+
+        <div class="testimonials__grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial gs-fade">
+            <p class="testimonial__quote" data-i18n="testi_1_quote">The place is honestly amazing! My son loves going to the nursery every day and his level has improved significantly in a short time. Excellent work!</p>
+            <div class="testimonial__author">
+              <span class="testimonial__role" data-i18n="testi_label">Verified Parent Review</span>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial gs-fade">
+            <p class="testimonial__quote" data-i18n="testi_2_quote">The best thing about Prodigy is the safety and cleanliness. I feel very reassured about my daughter while she's there. The staff is truly professional.</p>
+            <div class="testimonial__author">
+              <span class="testimonial__role" data-i18n="testi_label">Verified Parent Review</span>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial gs-fade">
+            <p class="testimonial__quote" data-i18n="testi_3_quote">The curriculum and activities truly develop the child's personality. My son has gained so much confidence and can express himself very well now.</p>
+            <div class="testimonial__author">
+              <span class="testimonial__role" data-i18n="testi_label">Verified Parent Review</span>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial gs-fade">
+            <p class="testimonial__quote" data-i18n="testi_4_quote">A world-class nursery in Beni Suef. We are truly proud to have such a place here. Wishing you continued success!</p>
+            <div class="testimonial__author">
+              <span class="testimonial__role" data-i18n="testi_label">Verified Parent Review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta__shell gs-fade">
+          <div class="cta__inner">
+            <h2 class="cta__title" data-i18n-html="cta_title">Begin Their Story<br />at <em>Prodigy</em></h2>
+            <p class="cta__text" data-i18n="cta_text">Schedule a personal tour to experience our classrooms, meet our
+              educators, and discover why families choose Prodigy as their child's first learning home.</p>
+            <div class="cta__actions">
+              <button class="btn btn--white" id="cta-book" onclick="openModal()">
+                <span data-i18n="cta_book">Register Now</span>
+                <span class="btn__icon"
+                  style="background: rgba(232,168,56,0.12); color: var(--c-accent);">&#8599;</span>
+              </button>
+              <a href="tel:+201094924914" class="btn btn--outline" id="cta-call">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                +20 109 492 4914
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__brand-row">
+              <img src="images/logo.png" alt="Prodigy" class="footer__logo" />
+              <h3 class="footer__brand-name">Prodigy Kindergarten</h3>
+            </div>
+            <p class="footer__brand-text" data-i18n="footer_desc">A leading green kindergarten on 1,500 m² — inspiring
+              young minds with premium early education in a safe, creative, and joyful environment.</p>
+            <div class="footer__stats">
+              <div class="footer__stat">
+                <span class="footer__stat-num">2,354+</span>
+                <span class="footer__stat-label" data-i18n="footer_stat_likes">Followers</span>
+              </div>
+              <div class="footer__stat">
+                <span class="footer__stat-num">1,500</span>
+                <span class="footer__stat-label" data-i18n="footer_stat_area">m² Campus</span>
+              </div>
+            </div>
+            <div class="footer__social">
+              <a href="https://www.facebook.com/profile.php?id=61565568639177" target="_blank" rel="noopener noreferrer"
+                aria-label="Facebook" id="social-fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg></a>
+              <a href="https://www.instagram.com/prodigy.academy2?utm_source=qr&igsh=NzF3eWhiZWtvdzA3" target="_blank"
+                rel="noopener noreferrer" aria-label="Instagram" id="social-ig"><svg width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg></a>
+              <a href="https://wa.me/201094924914" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" id="social-wa"><svg width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg></a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title" data-i18n="footer_academy">Academy</h4>
+            <ul>
+              <li><a href="#about" data-i18n="footer_story">Our Story</a></li>
+              <li><a href="#programs" data-i18n="nav_programs">Programs</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61565568639177" target="_blank"
+                  rel="noopener noreferrer" data-i18n="footer_news">News</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title" data-i18n="nav_vibes">Vibes</h4>
+            <ul>
+              <li><a href="#vibes" onclick="smoothTo('#vibes')" data-i18n="vibe_village">Village Vibes</a></li>
+              <li><a href="#vibes" onclick="smoothTo('#vibes')" data-i18n="vibe_christmas">Christmas Vibes</a></li>
+              <li><a href="#vibes" onclick="smoothTo('#vibes')" data-i18n="vibe_ramadan">Ramadan Vibes</a></li>
+              <li><a href="#vibes" onclick="smoothTo('#vibes')" data-i18n="vibe_pharaoh">Pharaoh Vibes</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title" data-i18n="footer_visit">Visit Us</h4>
+            <ul>
+              <li><a href="#" data-i18n="footer_location">Beni Suef, Egypt</a></li>
+              <li><a href="#" data-i18n="footer_hours">Mon &ndash; Fri, 7:00 &ndash; 18:00</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61565568639177" target="_blank"
+                  rel="noopener noreferrer" data-i18n="footer_fb_page">Visit us on Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>&copy; 2026 Prodigy Nursery. <span data-i18n="footer_rights">All rights reserved.</span></span>
+          <div class="footer__bottom-right">
+            <a href="#" data-i18n="footer_privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="#"
+              data-i18n="footer_terms">Terms</a>
+            <span class="footer__admin-sep">&nbsp;&middot;&nbsp;</span>
+            <a href="#" onclick="event.preventDefault(); showAdmin();" class="footer__admin-link"
+              id="footer-admin-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span data-i18n="footer_admin">Admin</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- END site-wrapper -->
+
+
+  <!-- ══════════ MODAL — Book a Tour ══════════ -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="booking-modal">
+      <button class="modal__close" id="modal-close" onclick="closeModal()" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <div id="modal-form-state">
+        <div class="modal__header">
+          <img src="images/logo.png" alt="Prodigy" class="modal__logo" />
+          <h2 class="modal__title" data-i18n="modal_title">Register Now</h2>
+          <p class="modal__subtitle" data-i18n="modal_subtitle">Fill in the details below and we'll reach out to
+            schedule your visit.</p>
+        </div>
+
+        <form id="booking-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="f-parent" data-i18n="form_parent">Parent / Guardian Name</label>
+              <input type="text" id="f-parent" name="parentName" required data-i18n-placeholder="form_parent_ph"
+                placeholder="Full name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="f-phone" data-i18n="form_phone">Phone Number</label>
+              <input type="tel" id="f-phone" name="phone" required data-i18n-placeholder="form_phone_ph"
+                placeholder="+20 xxx xxx xxxx" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="f-email" data-i18n="form_email">Email Address</label>
+              <input type="email" id="f-email" name="email" data-i18n-placeholder="form_email_ph"
+                placeholder="email@example.com" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="f-child" data-i18n="form_child">Child's Name</label>
+              <input type="text" id="f-child" name="childName" required data-i18n-placeholder="form_child_ph"
+                placeholder="Child's first name" />
+            </div>
+            <div class="form-group">
+              <label for="f-age" data-i18n="form_age">Child's Age</label>
+              <select id="f-age" name="childAge" required>
+                <option value="" data-i18n="form_age_ph">Select age range</option>
+                <option value="2-2.5" data-i18n="form_age_2">2 – 2.5 years</option>
+                <option value="2.5-3" data-i18n="form_age_3">2.5 – 3 years</option>
+                <option value="3-4" data-i18n="form_age_4">3 – 4 years</option>
+                <option value="4-5" data-i18n="form_age_5">4 – 5 years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-program" data-i18n="form_program">Desired Program</label>
+              <select id="f-program" name="program" required>
+                <option value="" data-i18n="form_program_ph">Select program</option>
+                <option value="Baby Class 1" data-i18n="prog_baby1">Baby Class 1</option>
+                <option value="Baby Class 2" data-i18n="prog_baby2">Baby Class 2</option>
+                <option value="KG 1" data-i18n="prog_kg1">KG 1</option>
+                <option value="KG 2" data-i18n="prog_kg2">KG 2</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-date" data-i18n="form_date">Preferred Visit Date</label>
+              <input type="date" id="f-date" name="visitDate" />
+            </div>
+            <div class="form-group form-group--full">
+              <label for="f-notes" data-i18n="form_notes">Additional Notes</label>
+              <textarea id="f-notes" name="notes" rows="3" data-i18n-placeholder="form_notes_ph"
+                placeholder="Any special requirements or questions..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary form-submit" id="form-submit-btn">
+            <span data-i18n="form_submit">Submit Application</span>
+            <span class="btn__icon">&#8599;</span>
+          </button>
+        </form>
+      </div>
+
+      <div id="modal-success-state" class="modal-success" style="display:none;">
+        <div class="modal-success__icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+        <h2 class="modal-success__title" data-i18n="form_success_title">Application Received!</h2>
+        <p class="modal-success__text" data-i18n="form_success_text">Thank you for your interest in Prodigy
+          Kindergarten. We'll contact you within 24 hours to confirm your visit.</p>
+        <button class="btn btn--primary" onclick="closeModal()"><span
+            data-i18n="form_success_close">Close</span></button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ ADMIN ══════════ -->
+  <div id="admin-wrapper" style="display:none;">
+
+    <!-- Login -->
+    <div id="admin-login" class="admin-login">
+      <div class="admin-login__card">
+        <button class="admin-login__back" onclick="hideAdmin()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          <span data-i18n="admin_back">Back to site</span>
+        </button>
+        <img src="images/logo.png" alt="Prodigy" class="admin-login__logo" />
+        <h2 class="admin-login__title" data-i18n="admin_login_title">Admin Dashboard</h2>
+        <p class="admin-login__subtitle" data-i18n="admin_login_subtitle">Sign in to manage tour applications.</p>
+
+        <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
+          <div class="form-group">
+            <label for="admin-email" data-i18n="form_email">Email Address</label>
+            <input type="email" id="admin-email" required placeholder="mina@prodigy.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="admin-password" data-i18n="admin_password">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="admin-password" required placeholder="••••••••"
+                autocomplete="current-password" />
+              <button type="button" class="password-toggle" onclick="togglePasswordVisibility()"
+                aria-label="Toggle password visibility">
+                <svg id="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <svg id="eye-off-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" style="display:none">
+                  <path
+                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                  <line x1="1" y1="1" x2="23" y2="23" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div id="admin-error" class="admin-login__error" style="display:none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+            <span id="admin-error-text" data-i18n="admin_error">Invalid email or password.</span>
+          </div>
+          <button type="submit" class="btn btn--primary form-submit" id="admin-submit-btn">
+            <span data-i18n="admin_login_btn">Sign In</span>
+            <span class="btn__icon">&#8599;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display:none;">
+      <header class="dash-header">
+        <div class="dash-header__left">
+          <img src="images/logo.png" alt="Prodigy" class="dash-header__logo" />
+          <h1 class="dash-header__title" data-i18n="dash_title">Dashboard</h1>
+        </div>
+        <div class="dash-header__right">
+          <button class="lang-toggle" onclick="toggleLanguage()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span class="dash-lang-label">عربي</span>
+          </button>
+          <button class="btn btn--ghost-dark dash-back" onclick="hideAdmin()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            <span data-i18n="dash_site">View Site</span>
+          </button>
+          <button class="btn btn--ghost-dark dash-logout" onclick="adminLogout()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            <span data-i18n="dash_logout">Logout</span>
+          </button>
+        </div>
+      </header>
+      <div class="dash-stats" id="dash-stats"></div>
+      <div class="dash-content">
+        <div class="dash-table-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <h2 class="dash-section-title" data-i18n="dash_submissions" style="margin-bottom: 0;">Tour Applications</h2>
+          <button class="btn btn--outline" onclick="exportToCSV()"
+            style="padding: 0.5rem 1rem; border-color: var(--c-border-strong); color: inherit;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span data-i18n="dash_export" style="margin-left: 0.5rem;">Export Excel</span>
+          </button>
+        </div>
+        <div class="dash-table-wrap" id="dash-table-wrap"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ SCRIPTS ══════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <script>
+    /* ══════════════════════════════════════════════════════════
+       SUPABASE INIT
+       ══════════════════════════════════════════════════════════
+       SETUP INSTRUCTIONS:
+       1. Run supabase-setup.sql in Supabase Dashboard > SQL Editor
+       2. Go to Authentication > Users > Add User
+       3. Add: mina@prodigy.com + your chosen password
+       ══════════════════════════════════════════════════════════ */
+    const SUPABASE_URL = 'https://wldmsvedbnzyyoaaiyvo.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_FVXZtUN7hx8EO4fSAdCsHQ_TCsz1l4t';
+
+    let sb = null;
+    try {
+      if (window.supabase && window.supabase.createClient) {
+        sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      }
+    } catch (e) {
+      console.warn('Supabase init failed, using localStorage fallback:', e);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       XSS PROTECTION — HTML escaping
+       ══════════════════════════════════════════════════════════ */
+    function escapeHTML(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = String(str);
+      return div.innerHTML;
+    }
+
+
+    /* ══════════════════════════════════════════════════════════
+       I18N
+       ══════════════════════════════════════════════════════════ */
+    let currentLang = localStorage.getItem('prodigy-lang') || 'en';
+
+    const i18n = {
+      en: {
+        nav_about: 'About', nav_programs: 'Programs', nav_families: 'Families', nav_contact: 'Contact', nav_enroll: 'Enroll Now', lang_switch: 'عربي',
+        hero_eyebrow: '\ud83c\udf3f 1,500 m\u00b2 Green Campus \u2014 Beni Suef', hero_title: 'Inspiring Young<br/><em>Minds</em>', hero_subtitle: 'A safe, creative, and inspiring environment where your child discovers the joy of learning through play, art, and adventure.', hero_cta_book: 'Register Now', hero_cta_explore: 'Explore', hero_scroll: 'Scroll',
+        about_s1_eyebrow: 'Our Philosophy', about_s1_title: 'Explorers of the World', about_s1_text: "At Prodigy, we believe childhood is not just a stage of learning — it is the foundation of lifelong curiosity, creativity, and character. We provide a nurturing, safe, and thoughtfully designed environment where children are encouraged to explore, express, and grow with confidence.<br/><br/>Our philosophy is rooted in the Montessori approach to interactive, child-led learning and skill development, enriched with nature-based experiences that reconnect children with the world around them and deepen their sense of discovery and wonder.", about_s1_badge: 'Creative Workshops',
+        about_s2_eyebrow: 'Safety First', about_s2_title: 'A safe world built for <em>growth</em><br/>and discovery', about_s2_text: 'Safety is not a feature — it is a foundation. Every space at Prodigy is intentionally designed to ensure children feel secure, supported, and free to explore. From advanced safety systems to a caring, trained team, we create an environment where parents feel at ease and children feel empowered.', about_s2_f1: 'Indoor surveillance cameras', about_s2_f2: 'Secure digital check-in', about_s2_f3: 'Highly trained educators', about_s2_f4: 'Continuous supervision', about_s2_badge: 'Safety Certified',
+        about_s3_eyebrow: 'Methodology', about_s3_title: 'Where <em>imagination</em><br/>leads the way', about_s3_text: 'At Prodigy, learning is a journey of discovery, not instruction. We create meaningful experiences that allow children to explore, experiment, and learn at their own pace in a supportive and inspiring environment.<br/><br/>Our approach is inspired by the Montessori philosophy, enriched with creative arts, music, storytelling, and hands-on activities that nurture independence, emotional growth, and creative thinking.<br/><br/>We also believe in the power of nature as a classroom, where children learn through observation, exploration, and real-world connection, building curiosity, confidence, and awareness that lasts a lifetime.', about_s3_f1: 'Montessori-inspired learning & skill development', about_s3_f2: 'Nature-based exploration & outdoor discovery', about_s3_f3: 'Music, rhythm & movement activities', about_s3_f4: 'Interactive storytelling & language development', about_s3_f5: 'Art, creativity & self-expression', about_s3_badge: 'Creative Educators',
+        programs_eyebrow: 'Our Classes', programs_title: 'Tailored Journeys for Every <em>Stage</em> of Growth', programs_text: 'At Prodigy, we understand that early childhood is a journey of rapid development, where each stage brings unique abilities, needs, and milestones. Our classes are carefully structured to support each child’s growth through age-appropriate learning experiences that nurture curiosity, confidence, and independence.',
+        prog_baby1: 'Baby Class 1', prog_baby1_age: '2 – 2.5 years', prog_baby1_text: 'A gentle and nurturing introduction to early learning. At this stage, children begin to explore separation, build trust, and develop early sensory and motor skills.',
+        prog_baby2: 'Baby Class 2', prog_baby2_age: '2.5 – 3 years', prog_baby2_text: 'Children become more independent, expressive, and socially aware. We support early language development, social interaction, and self-expression through creative play.',
+        prog_kg1: 'KG 1', prog_kg1_age: '3 – 4 years', prog_kg1_text: 'Growing curiosity and readiness for more structured learning. We focus on cognitive development, early literacy, and teamwork through hands-on experiences.',
+        prog_kg2: 'KG 2', prog_kg2_age: '4 – 5 years', prog_kg2_text: 'School readiness with stronger independence and critical thinking. We enhance academic readiness and problem-solving through a balanced blend of Montessori learning.',
+        nav_vibes: 'Vibes', vibes_eyebrow: 'Our Community', vibes_title: 'Prodigy <em>Vibes</em>', vibes_text: 'Experience the joyful moments and vibrant celebrations that make our academy a second home for every child.',
+        vibe_ramadan: 'Ramadan Vibes', vibe_christmas: 'Christmas Vibes', vibe_pharaoh: 'Pharaoh Vibes', vibe_village: 'Village Vibes', vibe_watch: 'Watch Now',
+        testi_title: 'Parent <em>Stories</em>', testi_subtitle: 'Discover why families love being part of our community.',
+        testi_1_quote: "The place is honestly amazing! My son loves going to the nursery every day and his level has improved significantly in a short time. Excellent work!",
+        testi_2_quote: "The best thing about Prodigy is the safety and cleanliness. I feel very reassured about my daughter while she's there. The staff is truly professional.",
+        testi_3_quote: "The curriculum and activities truly develop the child's personality. My son has gained so much confidence and can express himself very well now.",
+        testi_4_quote: "A world-class nursery in Beni Suef. We are truly proud to have such a place here. Wishing you continued success!",
+        testi_label: 'Verified Parent Review',
+        cta_title: 'Begin Their Story<br/>at <em>Prodigy</em>', cta_text: "Schedule a personal tour to experience our classrooms, meet our educators, and discover why families choose Prodigy as their child's first learning home.", cta_book: 'Register Now',
+        footer_desc: 'A leading green kindergarten on 1,500 m\u00b2 \u2014 inspiring young minds with premium early education in a safe, creative, and joyful environment.', footer_stat_likes: 'Followers', footer_stat_area: 'm\u00b2 Campus', footer_location: 'Beni Suef, Egypt', footer_fb_page: 'Visit us on Facebook', footer_academy: 'Kindergarten', footer_story: 'Our Story', footer_careers: 'Careers', footer_news: 'News', footer_enroll: 'Enroll', footer_portal: 'Parent Portal', footer_calendar: 'Calendar', footer_faq: 'FAQ', footer_visit: 'Visit Us', footer_hours: 'Mon \u2013 Fri, 7:00 \u2013 18:00', footer_rights: 'All rights reserved.', footer_privacy: 'Privacy', footer_terms: 'Terms', footer_admin: 'Admin',
+        modal_title: 'Register Now', modal_subtitle: "Fill in the details below and we'll reach out to schedule your visit.",
+        form_parent: 'Parent / Guardian Name', form_parent_ph: 'Full name', form_phone: 'Phone Number', form_phone_ph: '+20 xxx xxx xxxx', form_email: 'Email Address', form_email_ph: 'email@example.com', form_child: "Child's Name", form_child_ph: "Child's first name", form_age: "Child's Age", form_age_ph: 'Select age range', form_age_1: 'Under 1 year', form_age_2: '2 – 2.5 years', form_age_3: '2.5 – 3 years', form_age_4: '3 – 4 years', form_age_5: '4 – 5 years', form_program: 'Desired Program', form_program_ph: 'Select program', form_date: 'Preferred Visit Date', form_notes: 'Additional Notes', form_notes_ph: 'Any special requirements or questions...', form_submit: 'Submit Application', form_success_title: 'Application Received!', form_success_text: "Thank you for your interest in Prodigy Kindergarten. We'll contact you within 24 hours to confirm your visit.", form_success_close: 'Close',
+        admin_back: 'Back to site', admin_login_title: 'Admin Dashboard', admin_login_subtitle: 'Sign in to manage tour applications.', admin_password: 'Password', admin_error: 'Invalid email or password.', admin_login_btn: 'Sign In',
+        dash_title: 'Dashboard', dash_site: 'View Site', dash_logout: 'Logout', dash_submissions: 'Tour Applications', dash_total: 'Total', dash_new: 'New', dash_contacted: 'Contacted', dash_done: 'Done', dash_empty: 'No applications yet. They will appear here when parents submit the booking form.', dash_export: 'Export Excel',
+        dash_col_date: 'Date', dash_col_parent: 'Parent', dash_col_phone: 'Phone', dash_col_email: 'Email', dash_col_child: 'Child', dash_col_age: 'Age', dash_col_program: 'Program', dash_col_visit: 'Visit Date', dash_col_notes: 'Notes', dash_col_status: 'Status', dash_col_actions: 'Actions',
+        dash_status_new: 'New', dash_status_contacted: 'Contacted', dash_status_done: 'Done', dash_delete: 'Delete', dash_confirm_delete: 'Are you sure you want to delete this application?',
+      },
+      ar: {
+        nav_about: 'من نحن', nav_programs: 'البرامج', nav_families: 'العائلات', nav_contact: 'تواصل معنا', nav_enroll: 'سجّل الآن', lang_switch: 'EN',
+        hero_eyebrow: '🌿 حرم أخضر ١٥٠٠ م² — بني سويف', hero_title: 'نُلهم العقول<br/><em>الصغيرة</em>', hero_subtitle: 'بيئة آمنة وإبداعية وملهمة حيث يكتشف طفلك متعة التعلّم من خلال اللعب والفن والمغامرة.', hero_cta_book: 'احجز الان', hero_cta_explore: 'استكشف', hero_scroll: 'مرّر',
+        about_s1_eyebrow: 'فلسفتنا', about_s1_title: 'مستكشفو العالم', about_s1_text: 'في بروديجي، نؤمن بأن الطفولة ليست مجرد مرحلة للتعلم — بل هي حجر الأساس للفضول والإبداع وبناء الشخصية مدى الحياة. نوفر بيئة حاضنة وآمنة ومصممة بعناية حيث يتم تشجيع الأطفال على الاستكشاف والتعبير عن أنفسهم والنمو بثقة.<br/><br/>نهجنا متجذر في فلسفة منتسوري للتعلم التفاعلي الذي يقوده الطفل وتنمية المهارات، معززًا بتجارب قائمة على الطبيعة تعيد ربط الأطفال بالعالم من حولهم وتعمق لديهم الشعور بالاكتشاف والتساؤل.', about_s1_badge: 'ورش عمل إبداعية',
+        about_s2_eyebrow: 'الأمان أولاً', about_s2_title: 'عالم آمن مبني <em>للنمو</em><br/>والاكتشاف', about_s2_text: 'الأمان ليس مجرد ميزة — بل هو الأساس. تم تصميم كل مساحة في بروديجي عن قصد لضمان شعور الأطفال بالأمان والدعم والحرية في الاستكشاف. من أنظمة الأمان المتقدمة إلى فريق عمل محب ومدرب، نخلق بيئة يشعر فيها الآباء بالراحة والأطفال بالتمكين.', about_s2_f1: 'كاميرات مراقبة داخلية', about_s2_f2: 'تسجيل دخول رقمي آمن', about_s2_f3: 'مربيات مدربات للغاية', about_s2_f4: 'إشراف مستمر', about_s2_badge: 'معتمدة للسلامة',
+        about_s3_eyebrow: 'منهجيتنا', about_s3_title: 'حيث يقود <em>الخيال</em><br/>الطريق', about_s3_text: 'في بروديجي، التعلم هو رحلة اكتشاف، وليس مجرد تلقين. نحن نخلق تجارب هادفة تسمح للأطفال بالاستكشاف والتجربة والتعلم بالسرعة التي تناسبهم في بيئة داعمة وملهمة.<br/><br/>نهجنا مستوحى من فلسفة منتسوري، وهو غني بالفنون الإبداعية والموسيقى ورواية القصص والأنشطة العملية التي تغذي الاستقلال والنمو العاطفي والتفكير الإبداعي.<br/><br/>نؤمن أيضاً بقوة الطبيعة كفصل دراسي، حيث يتعلم الأطفال من خلال الملاحظة والاستكشاف والارتباط بالعالم الحقيقي، مما يبني لديهم الفضول والثقة والوعي الذي يدوم مدى الحياة.', about_s3_f1: 'تعلم مستوحى من منتسوري وتنمية مهارات', about_s3_f2: 'استكشاف قائم على الطبيعة واكتشاف خارجي', about_s3_f3: 'أنشطة الموسيقى والإيقاع والحركة', about_s3_f4: 'رواية قصص تفاعلية وتطور لغوي', about_s3_f5: 'فن وإبداع وتعبير عن الذات', about_s3_badge: 'مربون مبدعون',
+        programs_eyebrow: 'فصولنا', programs_title: 'رحلات مُخصّصة لكل <em>مرحلة</em> من مراحل النمو', programs_text: 'في بروديجي، ندرك أن الطفولة المبكرة هي رحلة من التطور السريع، حيث تجلب كل مرحلة قدرات واحتياجات ومعالم فريدة. فصولنا منظمة بعناية لدعم نمو كل طفل من خلال تجارب تعلم مناسبة لعمره تغذي الفضول والثقة والاستقلال.',
+        prog_baby1: 'بيبي كلاس ١', prog_baby1_age: '٢ – ٢.٥ سنة', prog_baby1_text: 'مقدمة لطيفة ومحفزة للتعلم المبكر. في هذه المرحلة، يبدأ الأطفال في استكشاف الانفصال، وبناء الثقة، وتطوير المهارات الحسية والحركية المبكرة.',
+        prog_baby2: 'بيبي كلاس ٢', prog_baby2_age: '٢.٥ – ٣ سنوات', prog_baby2_text: 'يصبح الأطفال أكثر استقلالية وتعبيريًا ووعيًا اجتماعيًا. ندعم تطوير اللغة المبكرة، والتفاعل الاجتماعي، والتعبير عن الذات من خلال اللعب الإبداعي.',
+        prog_kg1: 'كيه جي ١', prog_kg1_age: '٣ – ٤ سنوات', prog_kg1_text: 'فضول متزايد واستعداد لتعلم أكثر تنظيماً. نركز على التطور المعرفي، وأسس القراءة والكتابة، والعمل الجماعي من خلال تجارب عملية.',
+        prog_kg2: 'كيه جي ٢', prog_kg2_age: '٤ – ٥ سنوات', prog_kg2_text: 'الجاهزية المدرسية مع استقلالية وتفكير نقدي أقوى. نعزز الجاهزية الأكاديمية وحل المشكلات من خلال مزيج متوازن من تعلم منتسوري.',
+        nav_vibes: 'أجواء بروديجي', vibes_eyebrow: 'مجتمعنا', vibes_title: '<em>أجواء</em> بروديجي', vibes_text: 'عش اللحظات السعيدة والاحتفالات النابضة بالحياة التي تجعل أكاديميتنا بيتاً ثانياً لكل طفل.',
+        vibe_ramadan: 'أجواء رمضان', vibe_christmas: 'أجواء الكريسماس', vibe_pharaoh: 'أجواء الفراعنة (الأهرامات)', vibe_village: 'أجواء القرية', vibe_watch: 'شاهد الآن',
+        testi_title: 'قصص <em>أولياء الأمور</em>', testi_subtitle: 'اكتشف لماذا تختار العائلات بروديجي كبيت ثاني لأطفالهم.',
+        testi_1_quote: "بجد المكان هنا تحفة، ابني بقى بيحب يروح الحضانة كل يوم وما شاء الله مستواه اتطور جداً في وقت قصير. بجد تسلم إيديكم.",
+        testi_2_quote: "أحلى حاجة في بروديجي الأمان والنظافة، ببقى مطمنة جداً على بنتي وهي هناك. وفريق العمل بجد قمة في الذوق والرقي.",
+        testi_3_quote: "المنهج والأنشطة اللي بيعملوها بتنمي شخصية الطفل بجد. ابني بقى عنده ثقة في نفسه وبيعرف يعبر عن اللي جواه كويس أوي.",
+        testi_4_quote: "حضانة بمواصفات عالمية على أرض بني سويف، بجد فخورين إن عندنا مكان كدة. ربنا يوفقكم دايماً.",
+        testi_label: 'رأي أحد أولياء الأمور',
+        cta_title: 'ابدأ قصتهم<br/>في <em>بروديجي</em>', cta_text: 'احجز جولة شخصية لتتعرف على فصولنا وتقابل معلمينا وتكتشف لماذا تختار العائلات بروديجي كأول بيت تعليمي لأطفالهم.', cta_book: 'احجز الان',
+        footer_desc: 'حضانة خضراء رائدة على مساحة ١٥٠٠ م² — نُلهم العقول الصغيرة بتعليم مبكر متميز في بيئة آمنة وإبداعية وممتعة.', footer_stat_likes: 'متابع', footer_stat_area: 'م² حرم', footer_location: 'بني سويف، مصر', footer_fb_page: 'زوروا صفحتنا على فيسبوك', footer_academy: 'الحضانة', footer_story: 'قصتنا', footer_careers: 'وظائف', footer_news: 'أخبار', footer_enroll: 'التسجيل', footer_portal: 'بوابة أولياء الأمور', footer_calendar: 'التقويم', footer_faq: 'الأسئلة الشائعة', footer_visit: 'زورونا', footer_hours: 'الإثنين – الجمعة، ٧:٠٠ – ١٨:٠٠', footer_rights: 'جميع الحقوق محفوظة.', footer_privacy: 'الخصوصية', footer_terms: 'الشروط', footer_admin: 'إدارة',
+        modal_title: 'احجز الان', modal_subtitle: 'أدخل البيانات أدناه وسنتواصل معك لتحديد موعد الزيارة.',
+        form_parent: 'اسم ولي الأمر', form_parent_ph: 'الاسم الكامل', form_phone: 'رقم الهاتف', form_phone_ph: '+٢٠ xxx xxx xxxx', form_email: 'البريد الإلكتروني', form_email_ph: 'email@example.com', form_child: 'اسم الطفل', form_child_ph: 'الاسم الأول للطفل', form_age: 'عمر الطفل', form_age_ph: 'اختر الفئة العمرية', form_age_1: 'أقل من سنة', form_age_2: '٢ – ٢.٥ سنة', form_age_3: '٢.٥ – ٣ سنوات', form_age_4: '٣ – ٤ سنوات', form_age_5: '٤ – ٥ سنوات', form_program: 'البرنامج المرغوب', form_program_ph: 'اختر البرنامج', form_date: 'تاريخ الزيارة المفضل', form_notes: 'ملاحظات إضافية', form_notes_ph: 'أي متطلبات خاصة أو أسئلة...', form_submit: 'إرسال الطلب', form_success_title: 'تم استلام الطلب!', form_success_text: 'شكراً لاهتمامك بحضانة بروديجي. سنتواصل معك خلال ٢٤ ساعة لتأكيد زيارتك.', form_success_close: 'إغلاق',
+        admin_back: 'العودة للموقع', admin_login_title: 'لوحة التحكم', admin_login_subtitle: 'سجّل الدخول لإدارة طلبات الجولات.', admin_password: 'كلمة المرور', admin_error: 'البريد الإلكتروني أو كلمة المرور غير صحيحة.', admin_login_btn: 'تسجيل الدخول',
+        dash_title: 'لوحة التحكم', dash_site: 'عرض الموقع', dash_logout: 'خروج', dash_submissions: 'طلبات الجولات', dash_total: 'الإجمالي', dash_new: 'جديد', dash_contacted: 'تم التواصل', dash_done: 'مكتمل', dash_empty: 'لا توجد طلبات بعد. ستظهر هنا عندما يرسل الأهالي نموذج الحجز.', dash_export: 'تصدير إكسيل',
+        dash_col_date: 'التاريخ', dash_col_parent: 'ولي الأمر', dash_col_phone: 'الهاتف', dash_col_email: 'البريد', dash_col_child: 'الطفل', dash_col_age: 'العمر', dash_col_program: 'البرنامج', dash_col_visit: 'تاريخ الزيارة', dash_col_notes: 'ملاحظات', dash_col_status: 'الحالة', dash_col_actions: 'إجراءات',
+        dash_status_new: 'جديد', dash_status_contacted: 'تم التواصل', dash_status_done: 'مكتمل', dash_delete: 'حذف', dash_confirm_delete: 'هل أنت متأكد من حذف هذا الطلب؟',
+      }
+    };
+
+    function t(key) { return i18n[currentLang][key] || i18n['en'][key] || key; }
+
+    function applyLanguage(lang) {
+      try {
+        currentLang = lang;
+        const html = document.documentElement;
+        html.lang = lang;
+        html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const k = el.getAttribute('data-i18n');
+          if (i18n[lang] && i18n[lang][k]) el.textContent = i18n[lang][k];
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+          const k = el.getAttribute('data-i18n-html');
+          if (i18n[lang] && i18n[lang][k]) el.innerHTML = i18n[lang][k];
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const k = el.getAttribute('data-i18n-placeholder');
+          if (i18n[lang] && i18n[lang][k]) el.placeholder = i18n[lang][k];
+        });
+
+        const lbl = lang === 'ar' ? 'EN' : 'عربي';
+        const labelEl = document.getElementById('lang-toggle-label');
+        if (labelEl) labelEl.textContent = lbl;
+
+        document.querySelectorAll('.lang-toggle-mobile-label, .dash-lang-label').forEach(el => {
+          el.textContent = lbl;
+        });
+
+        localStorage.setItem('prodigy-lang', lang);
+
+        const dash = document.getElementById('admin-dashboard');
+        if (dash && dash.style.display !== 'none') {
+          renderDashboard();
+        }
+      } catch (e) {
+        console.error('applyLanguage failed:', e);
+      }
+    }
+
+    function toggleLanguage() { applyLanguage(currentLang === 'en' ? 'ar' : 'en'); }
+
+
+    /* ══════════════════════════════════════════════════════════
+       THEME TOGGLE — Dark / Light Mode
+       ══════════════════════════════════════════════════════════ */
+    let currentTheme = localStorage.getItem('prodigy-theme') || 'dark';
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      const root = document.documentElement;
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        document.getElementById('meta-theme-color').content = '#F5F2ED';
+      } else {
+        root.removeAttribute('data-theme');
+        document.getElementById('meta-theme-color').content = '#0B1426';
+      }
+      // Update all sun/moon icons
+      document.querySelectorAll('.theme-icon--dark').forEach(el => el.style.display = theme === 'dark' ? 'block' : 'none');
+      document.querySelectorAll('.theme-icon--light').forEach(el => el.style.display = theme === 'light' ? 'block' : 'none');
+      localStorage.setItem('prodigy-theme', theme);
+    }
+
+    function toggleTheme() {
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    }
+
+    // Apply saved theme on load
+    applyTheme(currentTheme);
+
+
+    /* ══════════════════════════════════════════════════════════
+       PASSWORD VISIBILITY TOGGLE
+       ══════════════════════════════════════════════════════════ */
+    function togglePasswordVisibility() {
+      const inp = document.getElementById('admin-password');
+      const eyeOn = document.getElementById('eye-icon');
+      const eyeOff = document.getElementById('eye-off-icon');
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        eyeOn.style.display = 'none';
+        eyeOff.style.display = 'block';
+      } else {
+        inp.type = 'password';
+        eyeOn.style.display = 'block';
+        eyeOff.style.display = 'none';
+      }
+    }
+
+
+    /* ══════════════════════════════════════════════════════════
+       MODAL
+       ══════════════════════════════════════════════════════════ */
+    function openModal() {
+      const o = document.getElementById('modal-overlay');
+      document.getElementById('modal-form-state').style.display = 'block';
+      document.getElementById('modal-success-state').style.display = 'none';
+      document.getElementById('booking-form').reset();
+      o.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const data = {
+        parent_name: f.parentName.value.trim(),
+        phone: f.phone.value.trim(),
+        email: f.email.value.trim() || null,
+        child_name: f.childName.value.trim(),
+        child_age: f.childAge.value,
+        program: f.program.value,
+        visit_date: f.visitDate.value || null,
+        notes: f.notes.value.trim() || null,
+        status: 'new'
+      };
+
+      // Try Supabase first
+      if (sb) {
+        try {
+          const { error } = await sb.from('submissions').insert(data);
+          if (error) throw error;
+        } catch (err) {
+          console.warn('Supabase insert failed, saving locally:', err);
+          saveLocal(data);
+        }
+      } else {
+        saveLocal(data);
+      }
+
+      document.getElementById('modal-form-state').style.display = 'none';
+      document.getElementById('modal-success-state').style.display = 'flex';
+    }
+
+    /* localStorage fallback */
+    function saveLocal(data) {
+      const subs = JSON.parse(localStorage.getItem('prodigy-submissions') || '[]');
+      subs.unshift({ ...data, id: Date.now(), submitted_at: new Date().toISOString() });
+      localStorage.setItem('prodigy-submissions', JSON.stringify(subs));
+    }
+
+
+    /* ══════════════════════════════════════════════════════════
+       ADMIN — Supabase Auth + Dashboard
+       ══════════════════════════════════════════════════════════ */
+    function showAdmin() {
+      document.getElementById('site-wrapper').style.display = 'none';
+      document.getElementById('admin-wrapper').style.display = 'block';
+      document.querySelector('.navbar').style.display = 'none';
+      document.querySelector('.floating-shapes').style.display = 'none';
+      checkSession();
+      window.scrollTo(0, 0);
+    }
+
+    function hideAdmin() {
+      document.getElementById('site-wrapper').style.display = '';
+      document.getElementById('admin-wrapper').style.display = 'none';
+      document.querySelector('.navbar').style.display = '';
+      document.querySelector('.floating-shapes').style.display = '';
+      window.scrollTo(0, 0);
+    }
+
+    async function checkSession() {
+      if (sb) {
+        try {
+          const { data: { session } } = await sb.auth.getSession();
+          if (session) {
+            document.getElementById('admin-login').style.display = 'none';
+            document.getElementById('admin-dashboard').style.display = 'block';
+            renderDashboard();
+            return;
+          }
+        } catch (e) { console.warn('Session check failed:', e); }
+      }
+      document.getElementById('admin-login').style.display = 'flex';
+      document.getElementById('admin-dashboard').style.display = 'none';
+    }
+
+    async function handleAdminLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('admin-email').value.trim();
+      const password = document.getElementById('admin-password').value;
+      const errEl = document.getElementById('admin-error');
+      const btn = document.getElementById('admin-submit-btn');
+
+      btn.style.opacity = '0.6';
+      btn.style.pointerEvents = 'none';
+
+      if (sb) {
+        try {
+          const { data, error } = await sb.auth.signInWithPassword({ email, password });
+          if (error) throw error;
+          errEl.style.display = 'none';
+          document.getElementById('admin-login').style.display = 'none';
+          document.getElementById('admin-dashboard').style.display = 'block';
+          renderDashboard();
+        } catch (err) {
+          console.error('Login error:', err);
+          errEl.style.display = 'flex';
+        }
+      } else {
+        errEl.style.display = 'flex';
+        document.getElementById('admin-error-text').textContent = 'Supabase not connected. Please check configuration.';
+      }
+
+      btn.style.opacity = '';
+      btn.style.pointerEvents = '';
+    }
+
+    async function adminLogout() {
+      if (sb) { try { await sb.auth.signOut(); } catch (e) { } }
+      document.getElementById('admin-email').value = '';
+      document.getElementById('admin-password').value = '';
+      document.getElementById('admin-error').style.display = 'none';
+      document.getElementById('admin-login').style.display = 'flex';
+      document.getElementById('admin-dashboard').style.display = 'none';
+      // Reset password visibility
+      document.getElementById('admin-password').type = 'password';
+      document.getElementById('eye-icon').style.display = 'block';
+      document.getElementById('eye-off-icon').style.display = 'none';
+    }
+
+    async function getSubmissions() {
+      if (sb) {
+        try {
+          const { data, error } = await sb.from('submissions').select('*').order('submitted_at', { ascending: false });
+          if (!error && data) return data;
+        } catch (e) { console.warn('Supabase fetch failed:', e); }
+      }
+      return JSON.parse(localStorage.getItem('prodigy-submissions') || '[]');
+    }
+
+    async function cycleStatus(id) {
+      const order = ['new', 'contacted', 'done'];
+      if (sb) {
+        try {
+          const { data } = await sb.from('submissions').select('status').eq('id', id).single();
+          if (data) {
+            const idx = order.indexOf(data.status);
+            const newStatus = order[(idx + 1) % order.length];
+            await sb.from('submissions').update({ status: newStatus }).eq('id', id);
+          }
+        } catch (e) {
+          console.warn('Status update failed:', e);
+          cycleStatusLocal(id);
+        }
+      } else {
+        cycleStatusLocal(id);
+      }
+      renderDashboard();
+    }
+
+    function cycleStatusLocal(id) {
+      const subs = JSON.parse(localStorage.getItem('prodigy-submissions') || '[]');
+      const sub = subs.find(s => s.id === id);
+      if (!sub) return;
+      const order = ['new', 'contacted', 'done'];
+      sub.status = order[(order.indexOf(sub.status) + 1) % order.length];
+      localStorage.setItem('prodigy-submissions', JSON.stringify(subs));
+    }
+
+    async function deleteSub(id) {
+      if (!confirm(t('dash_confirm_delete'))) return;
+      if (sb) {
+        try { await sb.from('submissions').delete().eq('id', id); } catch (e) {
+          console.warn('Delete failed:', e);
+          deleteSubLocal(id);
+        }
+      } else {
+        deleteSubLocal(id);
+      }
+      renderDashboard();
+    }
+
+    function deleteSubLocal(id) {
+      const subs = JSON.parse(localStorage.getItem('prodigy-submissions') || '[]').filter(s => s.id !== id);
+      localStorage.setItem('prodigy-submissions', JSON.stringify(subs));
+    }
+
+    async function renderDashboard() {
+      const subs = await getSubmissions();
+      const total = subs.length;
+      const newC = subs.filter(s => s.status === 'new').length;
+      const contC = subs.filter(s => s.status === 'contacted').length;
+      const doneC = subs.filter(s => s.status === 'done').length;
+
+      document.getElementById('dash-stats').innerHTML = `
+      <div class="stat-card stat-card--total"><div class="stat-card__number">${total}</div><div class="stat-card__label">${t('dash_total')}</div></div>
+      <div class="stat-card stat-card--new"><div class="stat-card__number">${newC}</div><div class="stat-card__label">${t('dash_new')}</div></div>
+      <div class="stat-card stat-card--contacted"><div class="stat-card__number">${contC}</div><div class="stat-card__label">${t('dash_contacted')}</div></div>
+      <div class="stat-card stat-card--done"><div class="stat-card__number">${doneC}</div><div class="stat-card__label">${t('dash_done')}</div></div>
+    `;
+
+      const wrap = document.getElementById('dash-table-wrap');
+      if (total === 0) {
+        wrap.innerHTML = `<div class="dash-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><p>${t('dash_empty')}</p></div>`;
+        return;
+      }
+
+      const sl = { new: t('dash_status_new'), contacted: t('dash_status_contacted'), done: t('dash_status_done') };
+      const loc = currentLang === 'ar' ? 'ar-EG' : 'en-US';
+
+      let table = `<table class="dash-table"><thead><tr><th>#</th><th>${t('dash_col_date')}</th><th>${t('dash_col_parent')}</th><th>${t('dash_col_phone')}</th><th>${t('dash_col_email')}</th><th>${t('dash_col_child')}</th><th>${t('dash_col_age')}</th><th>${t('dash_col_program')}</th><th>${t('dash_col_visit')}</th><th>${t('dash_col_notes')}</th><th>${t('dash_col_status')}</th><th>${t('dash_col_actions')}</th></tr></thead><tbody>`;
+
+      let cards = '<div class="dash-cards">';
+
+      subs.forEach((s, i) => {
+        const d = new Date(s.submitted_at).toLocaleDateString(loc, { month: 'short', day: 'numeric', year: 'numeric' });
+        const vd = s.visit_date ? new Date(s.visit_date).toLocaleDateString(loc, { month: 'short', day: 'numeric' }) : '—';
+        const pn = escapeHTML(s.parent_name);
+        const ph = escapeHTML(s.phone);
+        const em = escapeHTML(s.email || '—');
+        const cn = escapeHTML(s.child_name);
+        const ca = escapeHTML(s.child_age);
+        const pr = escapeHTML(s.program);
+        const nt = escapeHTML(s.notes || '—');
+
+        table += `<tr><td>${i + 1}</td><td>${d}</td><td><strong>${pn}</strong></td><td><a href="tel:${ph}">${ph}</a></td><td>${em}</td><td>${cn}</td><td>${ca}</td><td>${pr}</td><td>${vd}</td><td class="dash-td-notes">${nt}</td><td><button class="status-badge status-badge--${s.status}" onclick="cycleStatus(${s.id})">${sl[s.status] || s.status}</button></td><td><button class="dash-delete-btn" onclick="deleteSub(${s.id})" title="${t('dash_delete')}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></td></tr>`;
+
+        cards += `<div class="dash-card"><div class="dash-card__header"><strong>${pn}</strong><button class="status-badge status-badge--${s.status}" onclick="cycleStatus(${s.id})">${sl[s.status] || s.status}</button></div><div class="dash-card__body"><div class="dash-card__row"><span>${t('dash_col_phone')}:</span> <a href="tel:${ph}">${ph}</a></div><div class="dash-card__row"><span>${t('dash_col_email')}:</span> ${em}</div><div class="dash-card__row"><span>${t('dash_col_child')}:</span> ${cn} (${ca})</div><div class="dash-card__row"><span>${t('dash_col_program')}:</span> ${pr}</div><div class="dash-card__row"><span>${t('dash_col_date')}:</span> ${d}</div>${nt !== '—' ? `<div class="dash-card__row"><span>${t('dash_col_notes')}:</span> ${nt}</div>` : ''}</div><div class="dash-card__footer"><button class="dash-delete-btn" onclick="deleteSub(${s.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> ${t('dash_delete')}</button></div></div>`;
+      });
+
+      table += '</tbody></table>';
+      cards += '</div>';
+      wrap.innerHTML = table + cards;
+    }
+
+    async function exportToCSV() {
+      const subs = await getSubmissions();
+      if (!subs.length) {
+        alert(currentLang === 'ar' ? 'لا توجد بيانات للتصدير' : 'No data to export');
+        return;
+      }
+      const headers = ['ID', 'Date Submitted', 'Parent Name', 'Phone', 'Email', 'Child Name', 'Child Age', 'Program', 'Visit Date', 'Notes', 'Status'];
+      const rows = subs.map(s => [
+        s.id,
+        new Date(s.submitted_at).toLocaleDateString('en-US'),
+        `"${(s.parent_name || '').replace(/"/g, '""')}"`,
+        `"${(s.phone || '').replace(/"/g, '""')}"`,
+        `"${(s.email || '').replace(/"/g, '""')}"`,
+        `"${(s.child_name || '').replace(/"/g, '""')}"`,
+        `"${(s.child_age || '').replace(/"/g, '""')}"`,
+        `"${(s.program || '').replace(/"/g, '""')}"`,
+        s.visit_date ? new Date(s.visit_date).toLocaleDateString('en-US') : '',
+        `"${(s.notes || '').replace(/"/g, '""')}"`,
+        s.status
+      ]);
+      const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + headers.join(",") + "\n" + rows.map(r => r.join(",")).join("\n");
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "prodigy_applications_" + new Date().toISOString().slice(0, 10) + ".csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+
+    /* ══════════════════════════════════════════════════════════
+       PRELOADER & INIT
+       ══════════════════════════════════════════════════════════ */
+    let preloaderHidden = false;
+    function hidePreloader() {
+      if (preloaderHidden) return;
+      preloaderHidden = true;
+
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.classList.add('hidden');
+      }
+
+      // Initialize animations
+      try {
+        if (window.gsap) {
+          initHeroTimeline();
+        }
+      } catch (e) {
+        console.warn('Hero timeline animation failed:', e);
+      }
+    }
+
+    // Fast removal: hide as soon as DOM is ready, don't wait for all images/videos
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        applyLanguage(currentLang);
+      } catch (e) {
+        console.error('Language application failed:', e);
+      }
+      // Very small delay for visual polish
+      setTimeout(hidePreloader, 150);
+    });
+
+    // Ensure language is applied even if DOMContentLoaded already fired
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      applyLanguage(currentLang);
+      setTimeout(hidePreloader, 150);
+    }
+
+    // FAIL-SAFE: 1.5 seconds is enough even for slow environments
+    setTimeout(hidePreloader, 1500);
+
+    // Backup trigger on full load
+    window.addEventListener('load', hidePreloader);
+
+
+    /* ══════════════════════════════════════════════════════════
+       GSAP — NO BLUR (performance optimized)
+       ══════════════════════════════════════════════════════════ */
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.defaults({ ease: 'power3.out', duration: 1 });
+
+    function initHeroTimeline() {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      tl.fromTo('#hero-eyebrow', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 })
+        .fromTo('#hero-title', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, '-=0.5')
+        .fromTo('#hero-subtitle', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
+        .fromTo('#hero-actions', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+        .fromTo('#hero-scroll', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
+    }
+
+    /* Scroll section animations — transform only, no filter */
+    document.querySelectorAll('.scroll-section').forEach(section => {
+      const content = section.querySelector('.scroll-section__content');
+      const visual = section.querySelector('.scroll-section__visual');
+      const features = section.querySelectorAll('.scroll-section__feature');
+      const badge = section.querySelector('.scroll-section__badge');
+
+      if (content) {
+        const isLeft = content.classList.contains('gs-fade-left');
+        gsap.fromTo(content,
+          { opacity: 0, x: isLeft ? -60 : 60 },
+          {
+            opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none reverse' }
+          }
+        );
+      }
+      if (visual) {
+        const isRight = visual.classList.contains('gs-fade-right');
+        gsap.fromTo(visual,
+          { opacity: 0, x: isRight ? 60 : -60 },
+          {
+            opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none reverse' }
+          }
+        );
+      }
+      if (features.length) {
+        gsap.fromTo(features,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out',
+            scrollTrigger: { trigger: content, start: 'top 60%', toggleActions: 'play none none reverse' }
+          }
+        );
+      }
+      if (badge) {
+        gsap.fromTo(badge,
+          { opacity: 0, scale: 0.8, y: 20 },
+          {
+            opacity: 1, scale: 1, y: 0, duration: 0.7, ease: 'back.out(1.7)',
+            scrollTrigger: { trigger: section, start: 'top 50%', toggleActions: 'play none none reverse' }
+          }
+        );
+      }
+    });
+
+    /* Section bg transitions */
+    document.querySelectorAll('.scroll-section').forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top center', end: 'bottom center',
+        onEnter: () => {
+          const bg = getComputedStyle(document.documentElement).getPropertyValue(`--c-section-${i + 1}-bg`).trim();
+          gsap.to('body', { backgroundColor: bg, duration: 0.6 });
+        },
+        onLeaveBack: () => {
+          const bg = i > 0
+            ? getComputedStyle(document.documentElement).getPropertyValue(`--c-section-${i}-bg`).trim()
+            : getComputedStyle(document.documentElement).getPropertyValue('--c-bg').trim();
+          gsap.to('body', { backgroundColor: bg, duration: 0.6 });
+        }
+      });
+    });
+
+    /* General gs-fade — no blur */
+    document.querySelectorAll('.gs-fade').forEach(el => {
+      if (el.closest('.hero')) return;
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none reverse' }
+        }
+      );
+    });
+
+    /* Program cards */
+    gsap.fromTo('.programs__grid .program-card',
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+        scrollTrigger: { trigger: '.programs__grid', start: 'top 75%', toggleActions: 'play none none reverse' }
+      }
+    );
+
+    /* Testimonials */
+    gsap.fromTo('.testimonials__grid .testimonial',
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+        scrollTrigger: { trigger: '.testimonials__grid', start: 'top 78%', toggleActions: 'play none none reverse' }
+      }
+    );
+
+    /* Shapes */
+    document.querySelectorAll('.shape').forEach((shape, i) => {
+      gsap.to(shape, {
+        x: `+=${15 + i * 5}`, y: `+=${10 + i * 8}`,
+        duration: 6 + i * 2, ease: 'sine.inOut', repeat: -1, yoyo: true
+      });
+    });
+
+    /* Hero parallax */
+    gsap.to('.hero__video-wrap', {
+      y: 150, ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    });
+
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+
+    /* Mobile nav */
+    const toggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      toggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    /* Smooth scroll */
+    function smoothTo(selector) {
+      const el = document.querySelector(selector);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        smoothTo(href);
+      });
+    });
+
+    /* Tilt (Desktop only) */
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      document.querySelectorAll('.scroll-section__img-shell').forEach(shell => {
+        shell.addEventListener('mousemove', (e) => {
+          const r = shell.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          gsap.to(shell, { rotateY: x * 5, rotateX: -y * 5, transformPerspective: 800, duration: 0.3, ease: 'power2.out' });
+        });
+        shell.addEventListener('mouseleave', () => {
+          gsap.to(shell, { rotateY: 0, rotateX: 0, duration: 0.6, ease: 'power3.out' });
+        });
+      });
+    }
+  </script>
+
+  <!-- ══════════ VIDEO LIGHTBOX ══════════ -->
+  <div id="video-lightbox" class="video-modal" style="display:none;">
+    <div class="video-modal__overlay" onclick="closeVideo()"></div>
+    <div class="video-modal__container">
+      <button class="video-modal__close" onclick="closeVideo()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div class="video-modal__content">
+        <video id="lightbox-player" controls playsinline>
+          <source src="" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openVideo(src, poster) {
+      const modal = document.getElementById('video-lightbox');
+      const player = document.getElementById('lightbox-player');
+      if (!modal || !player) return;
+
+      player.src = src;
+      if (poster) player.poster = poster;
+
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('is-active'), 10);
+      document.body.style.overflow = 'hidden';
+
+      // Auto-play when opened
+      setTimeout(() => player.play(), 600);
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById('video-lightbox');
+      const player = document.getElementById('lightbox-player');
+      if (!modal || !player) return;
+
+      modal.classList.remove('is-active');
+      player.pause();
+      player.src = '';
+
+      setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 400);
+    }
+  </script>
+
+  <script>
+    /* Admin hash */
+    if (window.location.hash === '#admin') showAdmin();
+  </script>
+</body>
+
+</html>
