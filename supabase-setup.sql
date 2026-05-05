@@ -46,5 +46,5 @@ CREATE POLICY "auth_delete" ON submissions
 -- ═══════════════════════════════════════════════════════════
 -- AFTER running this SQL, go to:
 -- Supabase Dashboard > Authentication > Users > Add User
--- Add: mina@prodigy.com with your chosen password
+-- Add: your-email@prodigy.com with your chosen password
 -- ═══════════════════════════════════════════════════════════
