@@ -1258,9 +1258,13 @@
 
         localStorage.setItem('prodigy-lang', lang);
 
-        const dash = document.getElementById('admin-dashboard');
         if (dash && dash.style.display !== 'none') {
           renderDashboard();
+        }
+
+        // Refresh GSAP triggers because content height changed
+        if (window.ScrollTrigger) {
+          setTimeout(() => ScrollTrigger.refresh(), 100);
         }
       } catch (e) {
         console.error('applyLanguage failed:', e);
@@ -1670,7 +1674,7 @@
           { opacity: 0, x: isLeft ? -60 : 60 },
           {
             opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none reverse' }
+            scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' }
           }
         );
       }
@@ -1680,7 +1684,7 @@
           { opacity: 0, x: isRight ? 60 : -60 },
           {
             opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-            scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none reverse' }
+            scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' }
           }
         );
       }
@@ -1689,7 +1693,7 @@
           { opacity: 0, y: 20 },
           {
             opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out',
-            scrollTrigger: { trigger: content, start: 'top 60%', toggleActions: 'play none none reverse' }
+            scrollTrigger: { trigger: content, start: 'top 60%', toggleActions: 'play none none none' }
           }
         );
       }
@@ -1698,7 +1702,7 @@
           { opacity: 0, scale: 0.8, y: 20 },
           {
             opacity: 1, scale: 1, y: 0, duration: 0.7, ease: 'back.out(1.7)',
-            scrollTrigger: { trigger: section, start: 'top 50%', toggleActions: 'play none none reverse' }
+            scrollTrigger: { trigger: section, start: 'top 50%', toggleActions: 'play none none none' }
           }
         );
       }
@@ -1729,7 +1733,7 @@
         { opacity: 0, y: 40 },
         {
           opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
         }
       );
     });
@@ -1739,7 +1743,7 @@
       { opacity: 0, y: 50 },
       {
         opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
-        scrollTrigger: { trigger: '.programs__grid', start: 'top 75%', toggleActions: 'play none none reverse' }
+        scrollTrigger: { trigger: '.programs__grid', start: 'top 75%', toggleActions: 'play none none none' }
       }
     );
 
@@ -1748,7 +1752,7 @@
       { opacity: 0, y: 40 },
       {
         opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
-        scrollTrigger: { trigger: '.testimonials__grid', start: 'top 78%', toggleActions: 'play none none reverse' }
+        scrollTrigger: { trigger: '.testimonials__grid', start: 'top 78%', toggleActions: 'play none none none' }
       }
     );
 
