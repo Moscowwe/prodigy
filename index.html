@@ -1214,6 +1214,15 @@
         <div class="dash-table-wrap" id="dash-table-wrap"></div>
       </div>
     </div>
+
+    <div id="dash-detail-modal" class="dash-detail-modal" style="display:none;" onclick="closeDashDetailOutside(event)">
+      <div class="dash-detail-modal__overlay"></div>
+      <div class="dash-detail-modal__card">
+        <button class="dash-detail-modal__close" onclick="closeDashDetail()" aria-label="Close details">&times;</button>
+        <h3 id="dash-detail-title">Application Details</h3>
+        <div id="dash-detail-body"></div>
+      </div>
+    </div>
   </div>
 
 
@@ -1619,8 +1628,53 @@
       localStorage.setItem('prodigy-submissions', JSON.stringify(subs));
     }
 
+    let dashboardSubs = [];
+
+    function openDashDetailByIndex(index) {
+      const s = dashboardSubs[index];
+      if (!s) return;
+      const noVal = '—';
+      const submitted = s.submitted_at
+        ? new Date(s.submitted_at).toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US')
+        : noVal;
+      const visitOrAddress = escapeHTML(s.home_address || s.visit_date || noVal);
+      const details = [
+        [t('dash_col_date'), submitted],
+        [t('dash_col_parent'), escapeHTML(s.parent_name || noVal)],
+        [t('dash_col_phone'), escapeHTML(s.phone || noVal)],
+        [t('dash_col_email'), escapeHTML(s.email || noVal)],
+        [t('dash_col_child'), escapeHTML(s.child_name || noVal)],
+        [t('dash_col_age'), escapeHTML(s.child_age || noVal)],
+        [t('dash_col_program'), escapeHTML(s.program || noVal)],
+        [t('dash_col_visit'), visitOrAddress],
+        [t('dash_col_notes'), escapeHTML(s.notes || noVal)],
+        [t('dash_col_status'), escapeHTML(t(`dash_status_${s.status}`) || s.status || noVal)]
+      ];
+
+      document.getElementById('dash-detail-title').textContent =
+        currentLang === 'ar' ? 'تفاصيل الطلب' : 'Application Details';
+      document.getElementById('dash-detail-body').innerHTML = details.map(([k, v]) =>
+        `<div class="dash-detail-row"><strong>${k}</strong><p>${v}</p></div>`
+      ).join('');
+      document.getElementById('dash-detail-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDashDetail() {
+      const modal = document.getElementById('dash-detail-modal');
+      if (!modal) return;
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function closeDashDetailOutside(e) {
+      const card = e.currentTarget.querySelector('.dash-detail-modal__card');
+      if (card && !card.contains(e.target)) closeDashDetail();
+    }
+
     async function renderDashboard() {
       const subs = await getSubmissions();
+      dashboardSubs = subs;
       const total = subs.length;
       const newC = subs.filter(s => s.status === 'new').length;
       const contC = subs.filter(s => s.status === 'contacted').length;
@@ -1657,9 +1711,9 @@
         const pr = escapeHTML(s.program);
         const nt = escapeHTML(s.notes || '—');
 
-        table += `<tr><td>${i + 1}</td><td>${d}</td><td><strong>${pn}</strong></td><td><a href="tel:${ph}">${ph}</a></td><td>${em}</td><td>${cn}</td><td>${ca}</td><td>${pr}</td><td>${vd}</td><td class="dash-td-notes">${nt}</td><td><button class="status-badge status-badge--${s.status}" onclick="cycleStatus(${s.id})">${sl[s.status] || s.status}</button></td><td><button class="dash-delete-btn" onclick="deleteSub(${s.id})" title="${t('dash_delete')}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></td></tr>`;
+        table += `<tr class="dash-row-clickable" onclick="openDashDetailByIndex(${i})"><td>${i + 1}</td><td>${d}</td><td><strong>${pn}</strong></td><td><a href="tel:${ph}" onclick="event.stopPropagation()">${ph}</a></td><td>${em}</td><td>${cn}</td><td>${ca}</td><td>${pr}</td><td>${vd}</td><td class="dash-td-notes">${nt}</td><td><button class="status-badge status-badge--${s.status}" onclick="event.stopPropagation(); cycleStatus(${s.id})">${sl[s.status] || s.status}</button></td><td><button class="dash-delete-btn" onclick="event.stopPropagation(); deleteSub(${s.id})" title="${t('dash_delete')}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></td></tr>`;
 
-        cards += `<div class="dash-card"><div class="dash-card__header"><strong>${pn}</strong><button class="status-badge status-badge--${s.status}" onclick="cycleStatus(${s.id})">${sl[s.status] || s.status}</button></div><div class="dash-card__body"><div class="dash-card__row"><span>${t('dash_col_phone')}:</span> <a href="tel:${ph}">${ph}</a></div><div class="dash-card__row"><span>${t('dash_col_email')}:</span> ${em}</div><div class="dash-card__row"><span>${t('dash_col_child')}:</span> ${cn} (${ca})</div><div class="dash-card__row"><span>${t('dash_col_program')}:</span> ${pr}</div><div class="dash-card__row"><span>${t('dash_col_date')}:</span> ${d}</div>${nt !== '—' ? `<div class="dash-card__row"><span>${t('dash_col_notes')}:</span> ${nt}</div>` : ''}</div><div class="dash-card__footer"><button class="dash-delete-btn" onclick="deleteSub(${s.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> ${t('dash_delete')}</button></div></div>`;
+        cards += `<div class="dash-card dash-card--clickable" onclick="openDashDetailByIndex(${i})"><div class="dash-card__header"><strong>${pn}</strong><button class="status-badge status-badge--${s.status}" onclick="event.stopPropagation(); cycleStatus(${s.id})">${sl[s.status] || s.status}</button></div><div class="dash-card__body"><div class="dash-card__row"><span>${t('dash_col_phone')}:</span> <a href="tel:${ph}" onclick="event.stopPropagation()">${ph}</a></div><div class="dash-card__row"><span>${t('dash_col_email')}:</span> ${em}</div><div class="dash-card__row"><span>${t('dash_col_child')}:</span> ${cn} (${ca})</div><div class="dash-card__row"><span>${t('dash_col_program')}:</span> ${pr}</div><div class="dash-card__row"><span>${t('dash_col_date')}:</span> ${d}</div>${nt !== '—' ? `<div class="dash-card__row"><span>${t('dash_col_notes')}:</span> ${nt}</div>` : ''}</div><div class="dash-card__footer"><button class="dash-delete-btn" onclick="event.stopPropagation(); deleteSub(${s.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> ${t('dash_delete')}</button></div></div>`;
       });
 
       table += '</tbody></table>';
