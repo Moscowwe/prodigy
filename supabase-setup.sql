@@ -2,7 +2,7 @@
 -- PRODIGY KINDERGARTEN — Supabase Setup
 -- ═══════════════════════════════════════════════════════════
 -- Run this SQL in Supabase Dashboard > SQL Editor
--- Project: wldmsvedbnzyyoaaiyvo
+-- Project: dtmzgodvtylhzhpmzeta
 -- ═══════════════════════════════════════════════════════════
 
 -- 1. Create submissions table
