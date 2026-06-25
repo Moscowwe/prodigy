@@ -1267,6 +1267,17 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
   <script>
+    // Clean up Facebook's tracking parameter (fbclid) from the URL bar immediately
+    if (window.location.search.indexOf('fbclid=') !== -1) {
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('fbclid');
+        window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+      } catch (e) {
+        console.warn('Failed to clean fbclid:', e);
+      }
+    }
+
     /* ══════════════════════════════════════════════════════════
        SUPABASE INIT
        ══════════════════════════════════════════════════════════
@@ -1519,7 +1530,7 @@
       try {
         const botToken = '8693034257:AAFrUf6fx4fQB76qaUP_Dj9-Oie0-3WMa9Q';
         const chatIds = ['6360151024', '2081838085'];
-        
+
         // Format time exactly as: 25 Jun 2026 • 4:44 PM
         const now = new Date();
         const day = now.getDate();
