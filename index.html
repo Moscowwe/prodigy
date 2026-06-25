@@ -1528,6 +1528,27 @@
         saveLocal(data);
       }
 
+      // Send Telegram notification
+      try {
+        const botToken = '8693034257:AAFrUf6fx4fQB76qaUP_Dj9-Oie0-3WMa9Q';
+        const chatId = '6360151024';
+        const messageText = `📝 <b>There is a new application / هناك طلب تقديم جديد!</b>\n⏰ <b>Time / الوقت:</b> ${new Date().toLocaleString()}`;
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: messageText,
+            parse_mode: 'HTML'
+          })
+        }).catch(err => console.error('Telegram notification failed:', err));
+      } catch (tgErr) {
+        console.error('Telegram notification setup failed:', tgErr);
+      }
+
       document.getElementById('modal-form-state').style.display = 'none';
       document.getElementById('modal-success-state').style.display = 'flex';
     }
