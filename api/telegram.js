@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 <blockquote><b>𝗣𝗮𝗿𝗲𝗻𝘁 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:</b></blockquote>
 - 𝗡𝗮𝗺𝗲: ${parent_name}
 - 𝗣𝗵𝗼𝗻𝗲: <code>${phone}</code>
-${email ? `- 𝗘𝗺𝗮𝗶𝗹: ${email}` : ''}
+${email ? `- 𝗣𝗮𝗿𝗲𝗻𝘁 𝗝𝗼𝗯: ${email}` : ''}
 ${home_address ? `- 𝗔𝗱𝗱𝗿𝗲𝘀𝘀: ${home_address}` : ''}
 
 <blockquote><b>𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗡𝗼𝘁𝗲𝘀:</b></blockquote>
