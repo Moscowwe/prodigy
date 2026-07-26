@@ -64,6 +64,20 @@ ${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼�
       });
     }
 
+    // Send to Google Sheets if URL is provided
+    const sheetUrl = process.env.GOOGLE_SHEET_URL;
+    if (sheetUrl) {
+      try {
+        await fetch(sheetUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(req.body)
+        });
+      } catch (sheetErr) {
+        console.error('Error sending to Google Sheets:', sheetErr);
+      }
+    }
+
     res.status(200).json({ success: true, message: 'Telegram notification sent' });
   } catch (error) {
     console.error('Error sending telegram notification:', error);
