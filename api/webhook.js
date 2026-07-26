@@ -18,8 +18,6 @@ export default async function handler(req, res) {
 
 I am online and ready to receive new applications from the website.
 Whenever a parent registers, I will send you their details immediately.
-
-<i>Just wait for the notifications!</i>
         `.trim();
 
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -28,7 +26,29 @@ Whenever a parent registers, I will send you their details immediately.
           body: JSON.stringify({
             chat_id: chatId,
             text: welcomeMessage,
-            parse_mode: 'HTML'
+            parse_mode: 'HTML',
+            reply_markup: {
+              keyboard: [
+                [{ text: '📊 Open Excel' }]
+              ],
+              resize_keyboard: true,
+              is_persistent: true
+            }
+          })
+        });
+      } else if (text === '📊 Open Excel' || text.toLowerCase() === 'open excel') {
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/11HKem9SOalD14u_WkJ047Hr_65n3NB2aORR1fwLo7cI/edit';
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: "Here is your secure link to the Google Sheet. Click the button below to open it:",
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: 'Open Excel', url: sheetUrl }]
+              ]
+            }
           })
         });
       }
