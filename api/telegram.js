@@ -3,13 +3,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  // Retrieve the Token and Chat IDs from the Vercel Environment Variables
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
-  // If we have multiple Chat IDs, we can store them in an env var separated by comma, e.g. '6360151024,2081838085'
   const chatIdsEnv = process.env.TELEGRAM_CHAT_IDS;
   
   if (!botToken || !chatIdsEnv) {
-    console.error("Missing Environment Variables on Vercel");
     return res.status(500).json({ success: false, message: 'Server configuration error' });
   }
 
@@ -17,9 +14,8 @@ export default async function handler(req, res) {
 
   const { parent_name, phone, job, child_name, child_age, program, home_address, notes } = req.body;
   const uniqueId = Date.now().toString();
-  req.body.id = uniqueId; // Add ID so it goes to Google Sheets
+  req.body.id = uniqueId;
 
-  // Format the time
   const now = new Date();
   const day = now.getDate();
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -53,7 +49,6 @@ ${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼�
   `.trim();
 
   try {
-    // Send to all chat IDs
     for (const chatId of chatIds) {
       await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
@@ -71,7 +66,6 @@ ${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼�
       });
     }
 
-    // Send to Google Sheets if URL is provided
     const sheetUrl = process.env.GOOGLE_SHEET_URL;
     if (sheetUrl) {
       try {
@@ -80,14 +74,13 @@ ${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼�
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(req.body)
         });
-      } catch (sheetErr) {
-        console.error('Error sending to Google Sheets:', sheetErr);
+      } catch (e) {
       }
     }
 
     res.status(200).json({ success: true, message: 'Telegram notification sent' });
   } catch (error) {
-    console.error('Error sending telegram notification:', error);
     res.status(500).json({ success: false, message: 'Error sending to Telegram' });
   }
 }
+

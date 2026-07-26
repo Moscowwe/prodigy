@@ -5,9 +5,21 @@ export default async function handler(req, res) {
 
   try {
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const chatIdsEnv = process.env.TELEGRAM_CHAT_IDS;
+    const allowedChatIds = chatIdsEnv ? chatIdsEnv.split(',').map(id => id.trim()) : [];
     const body = req.body;
 
-    // Handle Callback Queries (Inline Buttons)
+    let currentChatId = null;
+    if (body && body.callback_query) {
+      currentChatId = body.callback_query.message.chat.id;
+    } else if (body && body.message) {
+      currentChatId = body.message.chat.id;
+    }
+
+    if (currentChatId && allowedChatIds.length > 0 && !allowedChatIds.includes(currentChatId.toString())) {
+      return res.status(200).json({ success: true, message: 'Unauthorized chat ID' });
+    }
+
     if (body && body.callback_query) {
       const query = body.callback_query;
       const data = query.data;
@@ -16,7 +28,6 @@ export default async function handler(req, res) {
 
       if (data.startsWith('del_')) {
         const id = data.split('_')[1];
-        // Confirm deletion
         await fetch(`https://api.telegram.org/bot${botToken}/editMessageReplyMarkup`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -35,7 +46,6 @@ export default async function handler(req, res) {
         });
       } else if (data.startsWith('cancel_')) {
         const id = data.split('_')[1];
-        // Restore Delete button
         await fetch(`https://api.telegram.org/bot${botToken}/editMessageReplyMarkup`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -51,7 +61,6 @@ export default async function handler(req, res) {
         });
       } else if (data.startsWith('confdel_')) {
         const id = data.split('_')[1];
-        // Send delete command to Google Sheets
         const sheetUrl = process.env.GOOGLE_SHEET_URL;
         if (sheetUrl) {
           await fetch(sheetUrl, {
@@ -61,7 +70,6 @@ export default async function handler(req, res) {
           });
         }
         
-        // Mark as deleted
         const originalText = query.message.text || '';
         await fetch(`https://api.telegram.org/bot${botToken}/editMessageText`, {
           method: 'POST',
@@ -85,7 +93,6 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true });
     }
 
-    // Check if it's a message and contains text
     if (body && body.message && body.message.text) {
       const chatId = body.message.chat.id;
       const text = body.message.text;
@@ -137,10 +144,9 @@ export default async function handler(req, res) {
       }
     }
 
-    // Always return 200 so Telegram knows we received the update
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Webhook error:', error);
     res.status(500).json({ success: false });
   }
 }
+
