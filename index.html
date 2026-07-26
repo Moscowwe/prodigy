@@ -1067,9 +1067,9 @@
                 placeholder="+20 xxx xxx xxxx" autocomplete="tel" />
             </div>
             <div class="form-group">
-              <label for="f-email" data-i18n="form_email">Parent Job</label>
-              <input type="text" id="f-email" name="email" data-i18n-placeholder="form_email_ph"
-                placeholder="Your profession" />
+              <label for="f-job" data-i18n="form_job">Parent Job</label>
+              <input type="text" id="f-job" name="job" data-i18n-placeholder="form_job_ph"
+                placeholder="Your profession" autocomplete="organization-title" />
             </div>
             <div class="form-group">
               <label for="f-child" data-i18n="form_child">Child's Name</label>
@@ -1484,7 +1484,7 @@
       const data = {
         parent_name: f.parentName.value.trim(),
         phone: f.phone.value.trim(),
-        email: f.email.value.trim() || null,
+        job: f.job.value.trim() || null,
         child_name: f.childName.value.trim(),
         child_age: f.childAge.value,
         program: f.program.value,

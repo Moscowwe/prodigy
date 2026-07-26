@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   const chatIds = chatIdsEnv.split(',');
 
-  const { parent_name, phone, email, child_name, child_age, program, home_address, notes } = req.body;
+  const { parent_name, phone, job, child_name, child_age, program, home_address, notes } = req.body;
 
   // Format the time
   const now = new Date();
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 <blockquote><b>𝗣𝗮𝗿𝗲𝗻𝘁 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:</b></blockquote>
 - 𝗡𝗮𝗺𝗲: ${parent_name}
 - 𝗣𝗵𝗼𝗻𝗲: <code>${phone}</code>
-${email ? `- 𝗣𝗮𝗿𝗲𝗻𝘁 𝗝𝗼𝗯: ${email}` : ''}
+${job ? `- 𝗣𝗮𝗿𝗲𝗻𝘁 𝗝𝗼𝗯: ${job}` : ''}
 ${home_address ? `- 𝗔𝗱𝗱𝗿𝗲𝘀𝘀: ${home_address}` : ''}
 
 <blockquote><b>𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗡𝗼𝘁𝗲𝘀:</b></blockquote>
