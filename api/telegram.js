@@ -31,21 +31,21 @@ export default async function handler(req, res) {
   const timeString = `${day} ${month} ${year} • ${hours}:${minutes} ${ampm}`;
 
   const messageText = `
-<blockquote><b>𝗡𝗲𝘄 𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻 𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱!</b></blockquote>
+<b>𝗡𝗲𝘄 𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻 𝗥𝗲𝗰𝗲𝗶𝘃𝗲𝗱!</b>
 
-<blockquote><b>𝗖𝗵𝗶𝗹𝗱 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:</b>
+<blockquote><b>𝗖𝗵𝗶𝗹𝗱 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:</b></blockquote>
 - 𝗡𝗮𝗺𝗲: ${child_name}
 - 𝗔𝗴𝗲: ${child_age}
-- 𝗣𝗿𝗼𝗴𝗿𝗮𝗺: ${program}</blockquote>
+- 𝗣𝗿𝗼𝗴𝗿𝗮𝗺: ${program}
 
-<blockquote><b>𝗣𝗮𝗿𝗲𝗻𝘁 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:</b>
+<blockquote><b>𝗣𝗮𝗿𝗲𝗻𝘁 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:</b></blockquote>
 - 𝗡𝗮𝗺𝗲: ${parent_name}
 - 𝗣𝗵𝗼𝗻𝗲: <code>${phone}</code>
 ${email ? `- 𝗘𝗺𝗮𝗶𝗹: ${email}` : ''}
-${home_address ? `- 𝗔𝗱𝗱𝗿𝗲𝘀𝘀: ${home_address}` : ''}</blockquote>
+${home_address ? `- 𝗔𝗱𝗱𝗿𝗲𝘀𝘀: ${home_address}` : ''}
 
-<blockquote><b>𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗡𝗼𝘁𝗲𝘀:</b>
-${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼𝘁𝗲𝘀 𝗽𝗿𝗼𝘃𝗶𝗱𝗲𝗱.'}</blockquote>
+<blockquote><b>𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗡𝗼𝘁𝗲𝘀:</b></blockquote>
+${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼𝘁𝗲𝘀 𝗽𝗿𝗼𝘃𝗶𝗱𝗲𝗱.'}
 
 🕒 Submitted at: ${timeString}
   `.trim();
