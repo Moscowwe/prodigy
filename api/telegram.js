@@ -16,6 +16,8 @@ export default async function handler(req, res) {
   const chatIds = chatIdsEnv.split(',');
 
   const { parent_name, phone, job, child_name, child_age, program, home_address, notes } = req.body;
+  const uniqueId = Date.now().toString();
+  req.body.id = uniqueId; // Add ID so it goes to Google Sheets
 
   // Format the time
   const now = new Date();
@@ -59,7 +61,12 @@ ${notes ? notes : '𝗡𝗼 𝗮𝗱𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗻𝗼�
         body: JSON.stringify({
           chat_id: chatId.trim(),
           text: messageText,
-          parse_mode: 'HTML'
+          parse_mode: 'HTML',
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: 'Delete', callback_data: `del_${uniqueId}` }]
+            ]
+          }
         })
       });
     }
