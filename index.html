@@ -1264,7 +1264,7 @@
   <!-- ══════════ SCRIPTS ══════════ -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
     // Clean up Facebook's tracking parameter (fbclid) from the URL bar immediately
@@ -1276,26 +1276,6 @@
       } catch (e) {
         console.warn('Failed to clean fbclid:', e);
       }
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SUPABASE INIT
-       ══════════════════════════════════════════════════════════
-       SETUP INSTRUCTIONS:
-       1. Run supabase-setup.sql in Supabase Dashboard > SQL Editor
-       2. Go to Authentication > Users > Add User
-       3. Add: your-email@prodigy.com + your chosen password
-       ══════════════════════════════════════════════════════════ */
-    const SUPABASE_URL = 'https://dtmzgodvtylhzhpmzeta.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_F_GIa0jrgrSEK1ygaa1U3w_HWakhIZC';
-
-    let sb = null;
-    try {
-      if (window.supabase && window.supabase.createClient) {
-        sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-      }
-    } catch (e) {
-      console.warn('Supabase init failed, using localStorage fallback:', e);
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -1513,18 +1493,8 @@
         status: 'new'
       };
 
-      // Try Supabase first
-      if (sb) {
-        try {
-          const { error } = await sb.from('submissions').insert(data);
-          if (error) throw error;
-        } catch (err) {
-          console.warn('Supabase insert failed, saving locally:', err);
-          saveLocal(data);
-        }
-      } else {
-        saveLocal(data);
-      }
+      // Fallback local save just in case
+      saveLocal(data);
 
       // Send Telegram notification via secure Vercel API Route
       try {
@@ -1533,7 +1503,7 @@
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({}) // We don't need to send anything for now
+          body: JSON.stringify(data)
         }).catch(err => console.error('Telegram notification failed:', err));
       } catch (tgErr) {
         console.error('Telegram notification setup failed:', tgErr);
@@ -1552,23 +1522,20 @@
 
 
     /* ══════════════════════════════════════════════════════════
-       ADMIN — Supabase Auth + Dashboard
+       ADMIN — Dashboard Maintenance Mode
        ══════════════════════════════════════════════════════════ */
     function showAdmin() {
-      document.getElementById('site-wrapper').style.display = 'none';
-      document.getElementById('admin-wrapper').style.display = 'block';
-      document.querySelector('.navbar').style.display = 'none';
-      document.querySelector('.floating-shapes').style.display = 'none';
-      checkSession();
-      window.scrollTo(0, 0);
+      Swal.fire({
+        title: 'Maintenance Mode 🚧',
+        text: 'The dashboard is currently being upgraded for a better experience! Please use Telegram to view new registrations.',
+        icon: 'info',
+        confirmButtonColor: '#F2C12E',
+        confirmButtonText: 'Got it!'
+      });
     }
 
     function hideAdmin() {
-      document.getElementById('site-wrapper').style.display = '';
-      document.getElementById('admin-wrapper').style.display = 'none';
-      document.querySelector('.navbar').style.display = '';
-      document.querySelector('.floating-shapes').style.display = '';
-      window.scrollTo(0, 0);
+      // No longer needed
     }
 
     async function checkSession() {

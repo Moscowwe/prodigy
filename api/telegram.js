@@ -15,9 +15,10 @@ export default async function handler(req, res) {
 
   const chatIds = chatIdsEnv.split(',');
 
-  // Format the time as done previously: 25 Jun 2026 • 4:44 PM
+  const { parent_name, phone, email, child_name, child_age, program, home_address, notes } = req.body;
+
+  // Format the time
   const now = new Date();
-  // Adjust for local timezone if needed, or stick to UTC (Vercel servers are usually UTC)
   const day = now.getDate();
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const month = months[now.getMonth()];
@@ -29,7 +30,25 @@ export default async function handler(req, res) {
   hours = hours ? hours : 12;
   const timeString = `${day} ${month} ${year} • ${hours}:${minutes} ${ampm}`;
 
-  const messageText = `🔔 <b>New Application Received</b>\n\nPlease review it in the dashboard.\n\n🕒 ${timeString}`;
+  const messageText = `
+🔔 <b>New Application Received!</b> 🔔
+
+🧑‍👦 <b>Child Information:</b>
+- Name: ${child_name}
+- Age: ${child_age}
+- Program: ${program}
+
+👨‍👩‍👧 <b>Parent Information:</b>
+- Name: ${parent_name}
+- Phone: <code>${phone}</code>
+${email ? `- Email: ${email}` : ''}
+${home_address ? `- Address: ${home_address}` : ''}
+
+📝 <b>Additional Notes:</b>
+${notes ? notes : 'No additional notes provided.'}
+
+🕒 <i>Submitted at: ${timeString}</i>
+  `.trim();
 
   try {
     // Send to all chat IDs
